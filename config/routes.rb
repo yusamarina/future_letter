@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root 'users#create'
+  root 'letters#index'
+  resources :users, only: [:create]
+  resources :letters
 end
