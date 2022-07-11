@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_06_060924) do
+ActiveRecord::Schema.define(version: 2022_07_11_084918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "letter_sending_dates", force: :cascade do |t|
+    t.integer "destination_id", null: false
+    t.bigint "letter_id", null: false
+    t.datetime "send_date", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["destination_id"], name: "index_letter_sending_dates_on_destination_id"
+    t.index ["letter_id"], name: "index_letter_sending_dates_on_letter_id"
+  end
 
   create_table "letters", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -40,6 +50,8 @@ ActiveRecord::Schema.define(version: 2022_07_06_060924) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "letter_sending_dates", "letters"
+  add_foreign_key "letter_sending_dates", "users", column: "destination_id"
   add_foreign_key "letters", "templates"
   add_foreign_key "letters", "users"
 end
