@@ -7,7 +7,7 @@ ja:
       letter_sending_date: 手紙を送る日時
     attributes:
       user:
-        line_id: LINEID
+        line_user_id: LINEID
       letter:
         title: タイトル
         body: 本文
