@@ -1,0 +1,2 @@
+module LetterSendingDatesHelper
+end
