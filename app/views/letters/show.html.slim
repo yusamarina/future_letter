@@ -1,2 +1,23 @@
-h1 Letters#show
-p Find me in app/views/letters/show.html.slim
+h1
+  = t('.title')
+table
+  thead
+    tr
+      th
+        = Letter.human_attribute_name :title
+      th
+        = Letter.human_attribute_name :body
+      th[colspan="3"]
+  tbody
+      td
+        = @letter.title
+      td
+        = @letter.body
+      td
+        = link_to 'Edit', edit_letter_path(@letter)
+      td
+        = link_to 'Destroy', @letter, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'Back', letters_path
+
+= javascript_pack_tag 'letters/show'
