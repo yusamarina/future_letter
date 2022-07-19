@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 他のメソッドを実行できるようになるための作業
+  const LIFF_ID = process.env.LIFF_ID
   liff.init({
-    liffId: gon.liff_id
+    liffId: LIFF_ID
   })
 })
