@@ -24,6 +24,7 @@ gem 'carrierwave'
 gem 'slim-rails'
 gem 'html2slim'
 gem 'rails-i18n'
+gem 'dotenv-rails'
 gem 'gon'
 
 group :development, :test do

@@ -36,3 +36,5 @@ yarn-debug.log*
 .yarn-integrity
 /.env
 /.github
+localhost-key.pem
+localhost.pem
