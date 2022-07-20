@@ -1,0 +1,18 @@
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+AllCops:
+  Exclude:
+    - 'db/schema.rb'
+    - 'bin/**'
+    - 'config.ru'
+    - 'Rakefile'
+    - 'spec/**/*'
+    - 'config/**/*'

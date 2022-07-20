@@ -1,2 +1,25 @@
-h1 Letters#new
-p Find me in app/views/letters/new.html.slim
+h1
+  |New Letter
+
+= form_with(model: @letter, id: 'form', local: false) do |f|
+  - if @letter.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@letter.errors.count, "error")
+        |  prohibited this board from being saved:
+    ul
+      - @letter.errors.each do |error|
+        li
+          = error.full_message
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :body
+    = f.text_field :body
+  .actions
+    = f.submit :手紙を送る相手を選ぶ
+
+= link_to 'Back', letters_path
+
+= javascript_pack_tag 'letters/new'

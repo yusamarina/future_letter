@@ -1,2 +1,24 @@
-h1 Letters#index
-p Find me in app/views/letters/index.html.slim
+h1
+  = t('.title')
+table
+  thead
+    tr
+      th
+        = Letter.human_attribute_name :title
+      th[colspan="3"]
+  tbody
+    - @letters.each do |letter|
+      tr
+
+      td
+        = letter.title
+      td
+        = link_to 'Show', letter
+      td
+        = link_to 'Edit', edit_letter_path(letter)
+      td
+        = link_to 'Destroy', letter, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New Letter', new_letter_path
+
+= javascript_pack_tag 'letters/index'

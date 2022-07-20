@@ -1,6 +1,6 @@
 ja:
   defaults:
-    app_name: 
+    app_name:
   letters:
-    show:
-      title: 
+    index:
+      title: お手紙一覧
