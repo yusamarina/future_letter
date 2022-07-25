@@ -13,3 +13,52 @@
  *= require_tree .
  *= require_self
  */
+
+.main-font{
+  font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+.font{
+  font-family: 'Merriweather', serif;
+}
+
+.header-nav{
+  margin: 0 0 0 auto;
+}
+
+ul{
+  display: flex;
+}
+
+li{
+  margin: 0 0 0 50px;
+}
+
+body {
+  margin: 0;
+  padding: 30px 4% 10px;
+  width: 100%;
+}
+
+header {
+  width: 100%;
+  padding: 40px 10px;
+  top: 0;
+}
+
+footer{
+  width: 100%;
+  padding: 30px 4% 10px;
+  top: 0;
+  align-items: center;
+}
+
+top{
+  display: flex;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+menu{
+  display: flex;
+}

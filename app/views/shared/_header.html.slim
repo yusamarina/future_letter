@@ -1,0 +1,27 @@
+header
+  top
+    h1.header-title.text-blue-900.font.text-3xl.tracking-wider
+      = link_to 'Future Letter', top_path
+    nav.header-nav.text-blue-900.font.text-1xl.tracking-wider
+      ul
+        li
+          = link_to 'PRIVACY POLICY', privacy_path
+        li
+          = link_to 'TERMS OF SERVICE', terms_path
+        li
+          | CONTACT
+  menu
+    div.image.container.mx-auto.w-1/4
+      = link_to image_tag('present.jpg'), mypage_path
+      p.text-center.text-blue-900.font.text-1xl
+        | MY PAGE
+
+    div.image.container.mx-auto.w-1/4
+      = link_to image_tag('santa.jpg'), new_letter_path
+      p.text-center.text-blue-900.font.text-1xl
+        | NEW LETTER
+
+    div.image.container.mx-auto.w-1/4
+      = link_to image_tag('candy_cane.jpg'), description_path
+      p.text-center.text-blue-900.font.text-1xl
+        | DESCRIPTION

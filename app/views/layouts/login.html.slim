@@ -15,7 +15,8 @@ html
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
     link[href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"]
+    script[src="https://cdn.tailwindcss.com"]
   body
-    = render 'shared/header'
+    = render 'shared/header_login'
     = yield
-    = render 'shared/footer'
+    = render 'shared/footer_login'
