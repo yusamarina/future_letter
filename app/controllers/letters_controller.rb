@@ -1,5 +1,5 @@
 class LettersController < ApplicationController
-  before_action :set_letter, only: %i[ show edit update destroy ]
+  before_action :set_letter, only: %i[edit update destroy]
 
   require 'net/http'
   require 'uri'
@@ -8,16 +8,17 @@ class LettersController < ApplicationController
     @letters = Letter.all
   end
 
-  def show;  end
+  def show
+    @letter = Letter.find_by(token: params[:token])
+  end
 
   def new
     @letter = Letter.new
   end
 
   def create
-    user = current_user
     @letter = Letter.new(letter_params)
-    @letter.user_id = user.id
+    @letter.user_id = current_user.id
     @letter.token = SecureRandom.hex(32)
     if @letter.save
       render json: @letter
@@ -31,25 +32,23 @@ class LettersController < ApplicationController
 
   def message
     message = {
-      "type": "text",
-      "text": "お手紙を送りました！\n送信日までお待ちください！",
+      "type": 'text',
+      "text": "お手紙を送りました！\n送信日までお待ちください。",
     }
     client = Line::Bot::Client.new { |config|
-    config.channel_secret = ENV['LINE_CHANNEL_SECRET']
-    config.channel_token = ENV['LINE_CHANNEL_TOKEN']
+      config.channel_secret = ENV['LINE_CHANNEL_SECRET']
+      config.channel_token = ENV['LINE_CHANNEL_TOKEN']
     }
     response = client.push_message(current_user.line_user_id, message)
     p response
   end
 
-  def edit
-    @letter = Letter.find_by(token: params[:token])
-  end
+  def edit; end
 
   def update
     respond_to do |format|
       if @letter.update(letter_params)
-        format.html { redirect_to letter_url(@letter), notice: "Letter was successfully updated." }
+        format.html { redirect_to letter_url(@letter), notice: 'Letter was successfully updated.' }
         format.json { render :show, status: :ok, location: @letter }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -62,19 +61,20 @@ class LettersController < ApplicationController
     @letter.destroy
 
     respond_to do |format|
-      format.html { redirect_to boards_url, notice: "Letter was successfully destroyed." }
+      format.html { redirect_to letters_url, notice: 'Letter was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
+  def open; end
+
   private
 
-    def set_letter
-      @letter = Letter.find(params[:id])
-    end
+  def set_letter
+    @letter = Letter.find(params[:id])
+  end
 
-    def letter_params
-      params.require(:letter).permit(:title, :body, :image, :user_id, :template_id, :token)
-    end
-
+  def letter_params
+    params.require(:letter).permit(:title, :body, :image, :user_id, :template_id, :token)
+  end
 end
