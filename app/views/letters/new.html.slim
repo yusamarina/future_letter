@@ -1,7 +1,7 @@
 h1.text-blue-900.font.text-2xl.tracking-wider.text-center
   |New Letter
 
-div.text-blue-900.font.text-1xl.tracking-wider.py-3.px-10
+div.text-blue-900.main-font.text-1xl.tracking-wider.py-3.px-10
   = form_with(model: @letter, id: 'form', local: false) do |f|
     - if @letter.errors.any?
       #error_explanation
@@ -20,7 +20,7 @@ div.text-blue-900.font.text-1xl.tracking-wider.py-3.px-10
       = f.text_area :body, class: "resize-none shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", size: "20x5"
     .actions.text-center.py-3
         = f.submit :手紙を送る相手を選ぶ, class: "ml-1 bg-yellow-100 hover:bg-yellow-300 text-blue-900 font rounded-full py-2 px-4"
-  div.text-blue-900.font.text-1xl.tracking-wider.text-center
-    = link_to 'Back', letters_path
+div.text-blue-900.font.text-1xl.tracking-wider.text-center
+  = link_to 'Back', letters_path
 
 = javascript_pack_tag 'letters/new'

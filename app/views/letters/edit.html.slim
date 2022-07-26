@@ -1,7 +1,7 @@
 h1.text-blue-900.font.text-2xl.tracking-wider.text-center
   | Edit
 
-div.text-blue-900.font.text-1xl.tracking-wider.py-3.px-10
+div.text-blue-900.main-font.text-1xl.tracking-wider.py-3.px-10
   = form_with(model: @letter, id: 'form', local: false) do |f|
     - if @letter.errors.any?
       #error_explanation

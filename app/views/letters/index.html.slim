@@ -1,23 +1,12 @@
-h1.text-blue-900.font.text-2xl.tracking-wider.text-center
-  | お手紙一覧
-table.text-center.leading-10.container.mx-auto
-  / thead
-  /   tr
-  /     th
-  /       = Letter.human_attribute_name :title
-  /     th[colspan="3"]
-  tbody
-    - @letters.each do |letter|
-      tr
-
-      td.text-blue-900.font.text-1xl
-        = letter.title
-      td
-        = link_to 'Edit', edit_letter_path(letter), class: "ml-1 bg-pink-100 hover:bg-pink-300 text-blue-900 font rounded-full py-2 px-4"
-      td
-        = link_to 'Destroy', letter, method: :delete, data: { confirm: 'お手紙を削除してもよろしいですか?' }, class: "ml-1 bg-yellow-100 hover:bg-yellow-300 text-blue-900 font rounded-full py-2 px-4"
-br
-h2.text-center.leading-10.container.mx-auto.text-1xl.text-blue-900.font
+h1.text-blue-900.main-font.text-1xl.tracking-wider.text-center
+  | 下書き
+- if @letters.present?
+  div.place-items-auto
+  = render @letters
+- else
+  p.text-blue-900.font.text-1xl.tracking-wider.text-center
+    | nothing...
+h2.text-center.leading-10.container.mx-auto.text-1xl.text-blue-900.main-font
   = link_to '手紙を書く', new_letter_path
 
 = javascript_pack_tag 'letters/index'
