@@ -1,24 +1,12 @@
-h1
-  = t('.title')
-table
-  thead
-    tr
-      th
-        = Letter.human_attribute_name :title
-      th[colspan="3"]
-  tbody
-    - @letters.each do |letter|
-      tr
-
-      td
-        = letter.title
-      td
-        = link_to 'Show', letter
-      td
-        = link_to 'Edit', edit_letter_path(letter)
-      td
-        = link_to 'Destroy', letter, method: :delete, data: { confirm: 'Are you sure?' }
-br
-= link_to 'New Letter', new_letter_path
+h1.text-blue-900.main-font.text-1xl.tracking-wider.text-center
+  | 下書き
+- if @letters.present?
+  div.place-items-auto
+  = render @letters
+- else
+  p.text-blue-900.font.text-1xl.tracking-wider.text-center
+    | nothing...
+h2.text-center.leading-10.container.mx-auto.text-1xl.text-blue-900.main-font
+  = link_to '手紙を書く', new_letter_path
 
 = javascript_pack_tag 'letters/index'

@@ -1,23 +1,16 @@
-h1
+h1.text-blue-900.font.text-2xl.tracking-wider.text-center
   = t('.title')
-table
-  thead
-    tr
-      th
-        = Letter.human_attribute_name :title
-      th
-        = Letter.human_attribute_name :body
-      th[colspan="3"]
-  tbody
-      td
+
+div.text-center.leading-5
+    div.shadow-lg.w-auto
+      div.w-full
+        = image_tag('tulip.jpg')
+      div.text-blue-900.main-font.text-1xl.px-4.py-2
         = @letter.title
-      td
+      div.text-blue-900.main-font.text-1xl.px-4.py-2
         = @letter.body
-      td
-        = link_to 'Edit', edit_letter_path(@letter)
-      td
-        = link_to 'Destroy', @letter, method: :delete, data: { confirm: 'Are you sure?' }
-br
-= link_to 'Back', letters_path
+
+div.text-blue-900.font.text-1xl.tracking-wider.text-center
+  = link_to 'Back', letters_path
 
 = javascript_pack_tag 'letters/show'

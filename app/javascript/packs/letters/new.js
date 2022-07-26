@@ -32,9 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const postFormElm = document.querySelector('#form')
   postFormElm.addEventListener('ajax:success', (e) => {
-
-    // gon.liff_id部分の埋め込み方法を考える。
-    const redirect_url = `https://liff.line.me/gon.liff_id/login?token=${e.detail[0].token}`
+    // liff_id部分の埋め込み方法を考える。
+    const redirect_url = `https://liff.line.me/liff_id/open?token=${e.detail[0].token}`
     liff.shareTargetPicker([
       message = {
         "type": "template",
