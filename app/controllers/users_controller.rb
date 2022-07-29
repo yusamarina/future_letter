@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :login_required, only: %i[new create]
+
   require 'net/http'
   require 'uri'
 
