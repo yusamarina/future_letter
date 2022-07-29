@@ -1,5 +1,5 @@
 h1.text-blue-900.font.text-2xl.tracking-wider.text-center
-  |New Letter
+  |NEW LETTER
 
 div.text-blue-900.main-font.text-1xl.tracking-wider.py-3.px-10
   = form_with(model: @letter, id: 'form', local: false) do |f|
@@ -18,8 +18,11 @@ div.text-blue-900.main-font.text-1xl.tracking-wider.py-3.px-10
     .field.py-3
       = f.label :body
       = f.text_area :body, class: "resize-none shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", size: "20x5"
+    .field
+      = f.label :send_date
+      = f.datetime_field :send_date
     .actions.text-center.py-3
-        = f.submit :手紙を送る相手を選ぶ, class: "ml-1 bg-yellow-100 hover:bg-yellow-300 text-blue-900 font rounded-full py-2 px-4"
+      = f.submit :手紙を送る相手を選ぶ, class: "ml-1 bg-yellow-100 hover:bg-yellow-300 text-blue-900 rounded-full py-2 px-4"
 div.text-blue-900.font.text-1xl.tracking-wider.text-center
   = link_to 'Back', letters_path
 

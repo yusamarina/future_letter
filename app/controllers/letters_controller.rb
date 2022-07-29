@@ -1,15 +1,17 @@
 class LettersController < ApplicationController
+  skip_before_action :login_required, only: %i[open]
   before_action :set_letter, only: %i[edit update destroy]
 
   require 'net/http'
   require 'uri'
 
   def index
-    @letters = Letter.all
+    @letters = Letter.where(user_id: current_user.id).includes(:user).order("created_at DESC")
   end
 
   def show
     @letter = Letter.find_by(token: params[:token])
+    render layout: 'login'
   end
 
   def new
@@ -66,7 +68,9 @@ class LettersController < ApplicationController
     end
   end
 
-  def open; end
+  def open
+    render layout: 'login'
+  end
 
   private
 
@@ -75,6 +79,6 @@ class LettersController < ApplicationController
   end
 
   def letter_params
-    params.require(:letter).permit(:title, :body, :image, :user_id, :template_id, :token)
+    params.require(:letter).permit(:title, :body, :image, :user_id, :template_id, :token, :send_date)
   end
 end

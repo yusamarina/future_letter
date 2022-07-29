@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :login_required, only: %i[new create]
+
   require 'net/http'
   require 'uri'
 
@@ -15,10 +17,10 @@ class UsersController < ApplicationController
     if user.nil?
       user = User.create(line_user_id: line_user_id)
       session[:user_id] = user.id
-      render json: user
+      render json: user, layout: 'login'
     elsif user
       session[:user_id] = user.id
-      render json: user
+      render json: user, layout: 'login'
     end
   end
 end

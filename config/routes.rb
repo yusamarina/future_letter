@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[create]
   resources :letters, only: %i[create new update edit index destroy]
-  resources :letter_sending_dates
+  resources :send_letters
 
   # get 'login', to: 'users#new'
   get 'open', to: 'letters#open'
