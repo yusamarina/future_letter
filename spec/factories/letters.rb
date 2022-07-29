@@ -5,5 +5,6 @@ FactoryBot.define do
     title { "MyString" }
     body { "MyText" }
     image { "MyString" }
+    send_date { "2022-07-11 17:49:18" }
   end
 end

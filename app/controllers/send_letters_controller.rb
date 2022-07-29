@@ -1,4 +1,4 @@
-class LetterSendingDatesController < ApplicationController
+class SendLettersController < ApplicationController
   def index
   end
 

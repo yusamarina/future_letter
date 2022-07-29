@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 # Specs in this file have access to a helper object that includes
-# the LetterSendingDatesHelper. For example:
+# the SendLettersHelper. For example:
 #
-# describe LetterSendingDatesHelper do
+# describe SendLettersHelper do
 #   describe "string concat" do
 #     it "concats two strings with spaces" do
 #       expect(helper.concat_strings("this","that")).to eq("this that")
 #     end
 #   end
 # end
-RSpec.describe LetterSendingDatesHelper, type: :helper do
+RSpec.describe SendLettersHelper, type: :helper do
   pending "add some examples to (or delete) #{__FILE__}"
 end

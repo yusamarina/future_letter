@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe "letter_sending_dates/destroy.html.slim", type: :view do
+RSpec.describe "send_letters/new.html.slim", type: :view do
   pending "add some examples to (or delete) #{__FILE__}"
 end

@@ -1,51 +1,51 @@
 require 'rails_helper'
 
-RSpec.describe "LetterSendingDates", type: :request do
+RSpec.describe "SendLetters", type: :request do
   describe "GET /index" do
     it "returns http success" do
-      get "/letter_sending_dates/index"
+      get "/send_letters/index"
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /show" do
     it "returns http success" do
-      get "/letter_sending_dates/show"
+      get "/send_letters/show"
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /new" do
     it "returns http success" do
-      get "/letter_sending_dates/new"
+      get "/send_letters/new"
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /create" do
     it "returns http success" do
-      get "/letter_sending_dates/create"
+      get "/send_letters/create"
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /edit" do
     it "returns http success" do
-      get "/letter_sending_dates/edit"
+      get "/send_letters/edit"
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /update" do
     it "returns http success" do
-      get "/letter_sending_dates/update"
+      get "/send_letters/update"
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /destroy" do
     it "returns http success" do
-      get "/letter_sending_dates/destroy"
+      get "/send_letters/destroy"
       expect(response).to have_http_status(:success)
     end
   end
