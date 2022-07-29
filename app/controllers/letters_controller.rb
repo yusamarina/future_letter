@@ -5,11 +5,13 @@ class LettersController < ApplicationController
   require 'uri'
 
   def index
-    @letters = Letter.all
+    # @letters = Letter.all
+    @letters = Letter.where(user_id: current_user.id).includes(:user).order("created_at DESC")
   end
 
   def show
     @letter = Letter.find_by(token: params[:token])
+    render layout: 'login'
   end
 
   def new
@@ -75,6 +77,6 @@ class LettersController < ApplicationController
   end
 
   def letter_params
-    params.require(:letter).permit(:title, :body, :image, :user_id, :template_id, :token)
+    params.require(:letter).permit(:title, :body, :image, :user_id, :template_id, :token, :send_date)
   end
 end
