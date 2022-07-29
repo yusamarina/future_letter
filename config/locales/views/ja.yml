@@ -3,7 +3,7 @@ ja:
     app_name:
   time:
     formats:
-      default: "%Y/%m/%d %H:%M"
+      default: "%Y-%m-%d %H:%M"
   letters:
     index:
       title: お手紙一覧

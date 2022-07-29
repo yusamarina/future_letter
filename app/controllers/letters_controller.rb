@@ -1,4 +1,5 @@
 class LettersController < ApplicationController
+  skip_before_action :login_required, only: %i[open]
   before_action :set_letter, only: %i[edit update destroy]
 
   require 'net/http'
@@ -68,7 +69,9 @@ class LettersController < ApplicationController
     end
   end
 
-  def open; end
+  def open
+    render layout: 'login'
+  end
 
   private
 
