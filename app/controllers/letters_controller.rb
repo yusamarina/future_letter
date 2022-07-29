@@ -6,7 +6,6 @@ class LettersController < ApplicationController
   require 'uri'
 
   def index
-    # @letters = Letter.all
     @letters = Letter.where(user_id: current_user.id).includes(:user).order("created_at DESC")
   end
 
