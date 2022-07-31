@@ -1,0 +1,18 @@
+= javascript_pack_tag 'letters/invite'
+
+div.text-blue-900.main-font.text-1xl.tracking-wider.text-center
+  p
+    | サプライズでお手紙を送りたいです。
+  p
+    | 表示されているお名前が正しければ
+  p
+    | 「OK」を押してください。
+
+div.text-center.leading-5
+  div.shadow-lg.w-auto
+    div.w-full
+      = image_tag('tulip.jpg')
+    div.text-blue-900.main-font.text-1xl.px-4.py-2
+      = @letter.title
+div.text-blue-900.m-5.font.text-center
+  = link_to "OK", reserve_letter_path(@letter.id), id: 'ok', remote: true, data: { confirm: 'サプライズで手紙が届きます。よろしいですか?' }, class: "m-3 bg-pink-100 hover:bg-pink-200 rounded-full py-2 px-4"

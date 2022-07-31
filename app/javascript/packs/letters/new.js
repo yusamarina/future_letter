@@ -37,12 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
     liff.shareTargetPicker([
       message = {
         "type": "template",
-        "altText": "お手紙が届いています。",
+        "altText": "メッセージが届いています。",
         "template": {
-            "thumbnailImageUrl": "https://s4.aconvert.com/convert/p3r68-cdx67/a6pzu-mzopp.jpg",
+          "thumbnailImageUrl": "https://photo-cdn2.icons8.com/brt9x13Zw6j73rN4WiO7eJAicpfu_uWitaTeSYif2TM/rs:fit:1606:1072/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L3NhdGEvb3JpZ2lu/YWwvMTYxLzIzNDE3/N2IzLWRmZWEtNDI2/Yi1hZGZkLWE0NjZl/YzgzMTRkZC5qcGc.jpg",
             "type": "buttons",
             "title": "お手紙",
-            "text": "お手紙を書きました！",
+            "text": "宛先を確認してください！",
             "actions": [
                 {
                   "type": "uri",
