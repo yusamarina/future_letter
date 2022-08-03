@@ -5,17 +5,17 @@ header
         p Future
         p Letter
     nav.header-nav.text-blue-900.font.text-xs.tracking-wider
-      ul
-        li
+      ul.header-menu
+        li.header-menu
           = link_to privacy_path do
             p PRIVACY
             p POLICY
-        li
+        li.header-menu
           = link_to terms_path do
             p TERMS
             p OF
             p SERVICE
-        li
+        li.header-menu
           = link_to 'CONTACT', 'https://forms.gle/3QYDYsXKFowwssbA9'
 
 - if logged_in?

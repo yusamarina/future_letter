@@ -39,10 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
         "type": "template",
         "altText": "メッセージが届いています。",
         "template": {
-          "thumbnailImageUrl": "https://photo-cdn2.icons8.com/brt9x13Zw6j73rN4WiO7eJAicpfu_uWitaTeSYif2TM/rs:fit:1606:1072/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L3NhdGEvb3JpZ2lu/YWwvMTYxLzIzNDE3/N2IzLWRmZWEtNDI2/Yi1hZGZkLWE0NjZl/YzgzMTRkZC5qcGc.jpg",
+          "thumbnailImageUrl": "https://cdn.pixabay.com/photo/2016/10/16/21/30/newspaper-1746350_1280.jpg",
             "type": "buttons",
             "title": "お手紙",
-            "text": "宛先を確認してください！",
+            "text": "お手紙を送りたいです！\n宛名を確認してください。",
             "actions": [
                 {
                   "type": "uri",
@@ -54,17 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     ]).then((res) => {
       if (res) {
-        liff.closeWindow();
+        liff.closeWindow()
+        fetch('/message');
       } else {
-        console.log('TargetPicker was closed!')
-        liff.closeWindow();
+        alert("手紙を送信する相手を選択してください。");
       }
     })
-    .then(() => {
-      fetch('/message')
-    })
-    .catch(function (res) {
-      alert("送信に失敗しました…もう一度送ってください。")
-    });
   })
 })

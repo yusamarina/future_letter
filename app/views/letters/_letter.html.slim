@@ -7,7 +7,9 @@ card class="flex justify-center items-center"
         = link_to edit_letter_path(letter) do
           = l letter.send_date
           br
-      div.text-blue-900.main-font.text-1xl.px-4.py-2
-        = letter.title
+        div.main-font.px-4.py-2
+          = letter.title
+          span.text-blue-900.main-font.text-xs
+            | へ
         div.text-blue-900.font.m-5
-          = link_to 'Destroy', letter, method: :delete, data: { confirm: 'まだ送信していないお手紙です。削除してもよろしいですか?' }, class: "m-3 bg-pink-100 hover:bg-pink-200 rounded-full py-2 px-4"
+          = link_to 'Destroy', letter, method: :delete, data: { confirm: "まだ送信していないお手紙です。\n削除してもよろしいですか?" }, class: "m-3 bg-pink-100 hover:bg-pink-200 rounded-full py-2 px-4"
