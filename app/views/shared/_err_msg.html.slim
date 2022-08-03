@@ -1,0 +1,4 @@
+ul
+  - @letter.errors.full_messages.each do |msg|
+    li.bg-red-100.text-red-400.main-font.px-2.py-2.relative
+      = msg

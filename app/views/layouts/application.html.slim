@@ -15,6 +15,7 @@ html
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
     link[href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"]
+    script[src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"]
   body
     = render 'shared/header'
     = yield

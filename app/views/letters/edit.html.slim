@@ -1,29 +1,24 @@
 h1.text-blue-900.font.text-2xl.tracking-wider.text-center
   | Edit
 
-div.text-blue-900.main-font.text-1xl.tracking-wider.py-3.px-10
+#error_explanation
+  = render 'shared/err_msg', letter: @letter
+
+div.text-blue-900.main-font.text-1xl.tracking-wider.py-3.px-3
   = form_with(model: @letter, id: 'form', local: false) do |f|
-    - if @letter.errors.any?
-      #error_explanation
-        h2
-          = pluralize(@letter.errors.count, "error")
-          |  prohibited this board from being saved:
-      ul
-        - @letter.errors.each do |error|
-          li
-            = error.full_message
     .field
       = f.label :title
       = f.text_field :title, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
     .field.py-3
       = f.label :body
       = f.text_area :body, class: "resize-none shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", size: "20x5"
-    .field
+    .field.py-3.text-center
       = f.label :send_date
+      br
       = f.datetime_field :send_date
     .actions.text-center.py-3
-        = f.submit :手紙を送る相手を選ぶ, class: "ml-1 bg-yellow-100 hover:bg-yellow-300 text-blue-900 rounded-full py-2 px-4"
-  div.text-blue-900.font.text-1xl.tracking-wider.text-center
-    = link_to 'Back', letters_path
+      = f.submit :手紙を送る相手を選ぶ, class: "ml-1 bg-yellow-100 hover:bg-yellow-200 text-blue-900 rounded-full py-2 px-4"
+div.text-blue-900.font.text-1xl.tracking-wider.text-center
+  = link_to 'Back', letters_path
 
 = javascript_pack_tag 'letters/new'
