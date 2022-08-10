@@ -3,6 +3,8 @@ class SendLettersController < ApplicationController
   require 'uri'
 
   def index
+    user = current_user
+    @send_letters = user.letters.joins(:send_letters).order("created_at DESC")
   end
 
   def show

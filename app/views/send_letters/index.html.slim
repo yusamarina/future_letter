@@ -1,2 +1,10 @@
-h1 SendLetters#index
-p Find me in app/views/send_letters/index.html.slim
+h1.text-blue-900.font.text-2xl.tracking-wider.text-center
+  | SENT LETTER
+- if @send_letters.present?
+  div.place-items-auto
+    = render @send_letters
+- else
+  p.text-blue-900.font.text-1xl.tracking-wider.text-center
+    | nothing...
+
+= javascript_pack_tag 'send_letters/index'

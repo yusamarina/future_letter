@@ -4,7 +4,7 @@ h2.text-center.leading-10.container.mx-auto.text-1xl.text-blue-900.main-font
   = link_to '新しい手紙を書く', new_letter_path, class: "ml-1 bg-yellow-100 hover:bg-yellow-200 text-blue-900 rounded-full py-2 px-4"
 - if @letters.present?
   div.place-items-auto
-  = render @letters
+    = render @letters
 - else
   p.text-blue-900.font.text-1xl.tracking-wider.text-center
     | nothing...
