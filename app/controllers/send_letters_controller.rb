@@ -1,4 +1,6 @@
 class SendLettersController < ApplicationController
+  skip_before_action :login_required, only: %i[show]
+
   require 'net/http'
   require 'uri'
 
@@ -8,6 +10,8 @@ class SendLettersController < ApplicationController
   end
 
   def show
+    @letter = Letter.find_by(token: params[:token])
+    render layout: 'login'
   end
 
   def new
