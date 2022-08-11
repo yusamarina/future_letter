@@ -4,6 +4,7 @@ class Letter < ApplicationRecord
   # belongs_to :template
 
   validates :user_id, presence: true
+  validates :title, presence: true
   validates :body, presence: true
   validates :send_date, presence: true
   validates :token, presence: true

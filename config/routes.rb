@@ -1,19 +1,18 @@
 Rails.application.routes.draw do
-  # root 'home#top'
   root 'users#new'
 
   resources :users, only: %i[create]
-  resources :letters, only: %i[create new update edit index destroy reserve] do
+  resources :letters, only: %i[create new update edit index destroy] do
     member do
       get 'reserve'
     end
   end
-  resources :send_letters
+  resources :send_letters, only: %i[create new update edit index destroy]
 
-  # get 'login', to: 'users#new'
   get 'open', to: 'letters#open'
   get 'message', to: 'letters#message'
   get 'letters/:token', to: 'letters#invite'
+  get 'send_letters/:token', to: 'send_letters#show'
   get 'privacy', to: 'home#privacy'
   get 'terms', to: 'home#terms'
   get 'description', to: 'home#description'

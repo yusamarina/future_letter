@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_28_134225) do
+ActiveRecord::Schema.define(version: 2022_08_11_062531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2022_07_28_134225) do
   create_table "letters", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "template_id"
-    t.string "title"
+    t.string "title", null: false
     t.text "body", null: false
     t.string "image"
     t.text "token", null: false

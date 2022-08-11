@@ -23,7 +23,7 @@ class LettersController < ApplicationController
     render json: @letter
     message = {
       "type": "text",
-      "text": "手紙の宛先が確認されました！\n設定日時にお手紙が相手の方へ届きます。"
+      "text": "手紙の宛先が確認されました！\n設定日時にお手紙が相手へ届きます。"
     }
     client = Line::Bot::Client.new { |config|
     config.channel_secret = ENV['LINE_CHANNEL_SECRET']
@@ -63,7 +63,7 @@ class LettersController < ApplicationController
   def message
     message = {
       "type": 'text',
-      "text": "お手紙の送信申請を送りました！\nお返事があるまでお待ちください。",
+      "text": "お手紙の宛先確認メッセージを送りました！\nお返事があるまでお待ちください。",
     }
     client = Line::Bot::Client.new { |config|
       config.channel_secret = ENV['LINE_CHANNEL_SECRET']
@@ -76,22 +76,19 @@ class LettersController < ApplicationController
   def edit; end
 
   def update
-    respond_to do |format|
-      if @letter.update(letter_params)
-        format.html { redirect_to letter_url(@letter), notice: 'Letter was successfully updated.' }
-        format.json { render :show, status: :ok, location: @letter }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @letter.errors, status: :unprocessable_entity }
+    if @letter.update(letter_params)
+      render json: @letter
+    else
+      respond_to do |format|
+        format.js { render 'update', status: 400 }
       end
     end
   end
 
   def destroy
-    @letter.destroy
-
+    @letter.destroy!
     respond_to do |format|
-      format.html { redirect_to letters_url, notice: 'Letter was successfully destroyed.' }
+      format.html { redirect_to letters_url }
       format.json { head :no_content }
     end
   end

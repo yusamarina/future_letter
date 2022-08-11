@@ -4,15 +4,15 @@ ja:
       user: ユーザー
       letter: 手紙
       template: テンプレート
-      send_letters: 手紙を送る日時
+      send_letters: 送る手紙
     attributes:
       user:
         line_user_id: LINEID
       letter:
-        title: タイトル
-        body: 本文
+        title: 手紙を送りたい相手のお名前
+        body: 手紙の本文
         image: 画像
-        send_date: 送信日時
+        send_date: 手紙を送る日時
       template:
         name: テンプレート名
         content: テンプレート
