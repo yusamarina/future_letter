@@ -101,6 +101,12 @@ class LettersController < ApplicationController
 
   def set_letter
     @letter = Letter.find(params[:id])
+    user = @letter.user
+    if user != current_user
+      respond_to do |format|
+        format.html { render file: "#{Rails.root}/public/404.html", layout: false, status: :not_found }
+      end
+    end
   end
 
   def letter_params
