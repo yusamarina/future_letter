@@ -101,6 +101,8 @@ class LettersController < ApplicationController
 
   def set_letter
     @letter = Letter.find(params[:id])
+    user = @letter.user
+    redirect_to(letters_path) unless user == current_user
   end
 
   def letter_params
