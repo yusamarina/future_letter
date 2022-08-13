@@ -6,7 +6,7 @@ class SendLettersController < ApplicationController
 
   def index
     user = current_user
-    @send_letters = user.letters.joins(:send_letters).order("created_at DESC")
+    @send_letters = user.letters.joins(:send_letters).order("send_date DESC")
   end
 
   def show
