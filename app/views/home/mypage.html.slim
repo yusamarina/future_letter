@@ -1,17 +1,28 @@
 h1.text-blue-900.font.text-2xl.tracking-wider.text-center.py-6
   | MY PAGE
+
 div.text-blue-900.main-font.text-1xl.tracking-wider.text-center
-  p
+  .flex.justify-center
+    .w-6
+      = image_tag('mail.jpg')
     = link_to '新しい手紙を書く', new_letter_path
   br
-  p
+  .flex.justify-center
+    .w-6
+      = image_tag('mail.jpg')
     = link_to '下書き', letters_path
   br
-  p
+  .flex.justify-center
+    .w-6
+      = image_tag('mail.jpg')
     = link_to 'これから送る手紙・送った手紙', send_letters_path
   br
-  p
-    | 記念日（準備中）
+  .flex.justify-center
+    .w-6
+      = image_tag('mail.jpg')
+    = link_to '記念日（準備中）', mypage_path
   br
-  p
+  .flex.justify-center
+    .w-6
+      = image_tag('mail.jpg')
     = link_to '使い方', description_path
