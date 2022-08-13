@@ -36,7 +36,6 @@ header {
 footer {
   width: 100%;
   top: 0;
-  padding: 30px 4% 10px;
   align-items: center;
 }
 
@@ -72,8 +71,4 @@ top {
 card {
   padding: 10px;
   display: flex;
-}
-
-h1 {
-  padding: 30px 0;
 }
