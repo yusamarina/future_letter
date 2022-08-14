@@ -24,6 +24,8 @@ gem "aws-sdk-s3", require: false
 gem 'carrierwave'
 gem 'fog-aws'
 
+gem 'meta-tags'
+
 gem 'dotenv-rails'
 
 gem 'enum_help'
