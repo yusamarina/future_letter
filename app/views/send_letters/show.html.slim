@@ -2,7 +2,12 @@ card.flex.justify-center.items-center
   div.text-center.leading-5
     div.shadow-lg.w-auto
       div.w-full
-        = image_tag('tulip.jpg')
+        - if @letter.image.present?
+          = link_to edit_letter_path(@letter) do
+            = image_tag @letter.image.to_s
+        - else
+          = link_to image_tag('default.jpg'), edit_letter_path(@letter)
+
       div.text-blue-900.main-font.text-1xl.px-4.py-2
         = @letter.title
         span.text-blue-900.main-font.text-xs

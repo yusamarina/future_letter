@@ -37,7 +37,7 @@ namespace :check_date do
               "thumbnailImageUrl": "https://cdn.pixabay.com/photo/2016/09/10/17/17/letters-1659715_1280.jpg",
               "type": "buttons",
               "title": "FUTURE LETTER",
-              "text": "お手紙を書きました！",
+              "text": "お手紙が届いています！",
               "actions": [
                   {
                     "type": "uri",
@@ -96,7 +96,7 @@ namespace :check_date do
                 "thumbnailImageUrl": "https://cdn.pixabay.com/photo/2016/09/10/17/17/letters-1659715_1280.jpg",
                 "type": "buttons",
                 "title": "FUTURE LETTER",
-                "text": "設定した日時が近くなりました。\nお手紙を送る相手を選択しましょう。",
+                "text": "設定した送信日時が近くなりました。\nお手紙を送る相手を選択しましょう。",
                 "actions": [
                     {
                       "type": "uri",
