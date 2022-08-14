@@ -20,10 +20,11 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'line-bot-api'
 
+gem "aws-sdk-s3", require: false
 gem 'carrierwave'
+gem 'fog-aws'
 
 gem 'dotenv-rails'
-gem 'gon'
 
 gem 'enum_help'
 gem 'rails-i18n'

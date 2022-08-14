@@ -1,4 +1,6 @@
 class Letter < ApplicationRecord
+  mount_uploader :image, ImageUploader
+
   has_many :send_letters, dependent: :destroy
   belongs_to :user
   # belongs_to :template

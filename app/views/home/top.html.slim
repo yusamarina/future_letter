@@ -1,12 +1,14 @@
 div.pt-6
-  hero
-    image
-      = image_tag('post.jpg')
-    text
-      p.text-blue-900.main-font.text-1xl.tracking-wider.text-center
-        | 大切なひと、未来の自分へ
-      p.text-blue-900.main-font.text-1xl.tracking-wider.text-center
-        | 今の気持ちを手紙にして送りませんか？
+  card.flex.justify-center.items-center
+      div.text-center.leading-5
+        div.shadow-lg.w-auto
+          div.w-full
+            = image_tag('icon.jpg')
+            .text-blue-900.main-font.text-1xl.tracking-wider.text-center.px-4.py-2
+              p
+                | 大切なひと、未来の自分へ
+              p
+                | 今の気持ちを手紙にして送りませんか？
 
 h1.text-blue-900.font.text-2xl.tracking-wider.text-center.py-6
   | WHEN TO USE
