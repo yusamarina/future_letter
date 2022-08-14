@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 data_id = data.id
               })
               .then(() => {
-                liff.closeWindow();
+                window.location = '/friend'
               })
               .catch((err) => {
                 console.log(err.code, err.message);
