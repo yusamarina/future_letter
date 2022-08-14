@@ -10,4 +10,8 @@ class HomeController < ApplicationController
   def description; end
 
   def mypage; end
+
+  def friend
+    render layout: 'login'
+  end
 end

@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   get 'description', to: 'home#description'
   get 'top', to: 'home#top'
   get 'mypage', to: 'home#mypage'
+  get 'friend', to: 'home#friend'
   post 'callback', to: 'linebot#callback'
 end
