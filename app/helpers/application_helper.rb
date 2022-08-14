@@ -2,10 +2,10 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: 'FUTURE LETTER',
-      title: 'FUTURE LETTER',
+      title: 'FUTURE LETTER お手紙を送るサービス',
       reverse: true,
       separator: '|',
-      description: 'サプライズでお手紙を送るサービスです。',
+      description: '大切なひと、未来の自分へ、今の気持ちをお手紙に残しませんか？送信日時を設定し、サプライズでお手紙を送るサービスです。',
       keywords: '手紙',
       canonical: request.original_url,
       noindex: ! Rails.env.production?,
@@ -15,8 +15,8 @@ module ApplicationHelper
       ],
       og: {
         site_name: 'FUTURE LETTER',
-        title: 'FUTURE LETTER',
-        description: 'サプライズでお手紙を送るサービスです。',
+        title: 'FUTURE LETTER お手紙を送るサービス',
+        description: '大切なひと、未来の自分へ、今の気持ちをお手紙に残しませんか？送信日時を設定し、サプライズでお手紙を送るサービスです。',
         type: 'website',
         url: request.original_url,
         image: image_url('ogp_630.jpg'),
