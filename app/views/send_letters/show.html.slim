@@ -3,10 +3,9 @@ card.flex.justify-center.items-center
     div.shadow-lg.w-auto
       div.w-full
         - if @letter.image.present?
-          = link_to edit_letter_path(@letter) do
-            = image_tag @letter.image.to_s
+          = image_tag @letter.image.to_s
         - else
-          = link_to image_tag('default.jpg'), edit_letter_path(@letter)
+          = image_tag('default.jpg')
 
       div.text-blue-900.main-font.text-1xl.px-4.py-2
         = @letter.title
@@ -14,5 +13,8 @@ card.flex.justify-center.items-center
           | へ
       div.text-blue-900.main-font.text-1xl.px-4.py-2
         = @letter.body
+
+div.text-blue-900.font.text-1xl.tracking-wider.text-center
+  = link_to 'Back', send_letters_path
 
 = javascript_pack_tag 'send_letters/show'

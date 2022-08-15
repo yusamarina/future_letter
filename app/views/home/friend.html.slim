@@ -1,43 +1,40 @@
 div.pt-2
-  card.flex.justify-center.items-center
-      div.text-center.leading-5
-        div.shadow-lg.w-auto
-          div.w-full
-            = image_tag('icon.jpg')
-            .text-blue-900.main-font.text-1xl.tracking-wider.text-center.px-4.py-2
-              p
-                | 大切なひと、未来の自分へ
-              p
-                | 今の気持ちを手紙にして送りませんか？
+  card.justify-center.items-center.m-auto.w-1/2
+    div.text-center.leading-5
+      div.shadow-lg.w-auto
+        div.w-full
+          = image_tag('icon.jpg')
 
 h1.text-blue-900.font.text-2xl.tracking-wider.text-center.py-6
   | PLEASE ADD ME
   br
   | AS A LINE FRIEND !
-
 .text-blue-900.main-font.text-1xl.tracking-wider.text-center
   p
-    | お手紙を受け取るには
-  br
-.text-blue-900.font.text-1xl.tracking-wider.text-center
+    | 宛名のご確認ありがとうございました !
+    br
+  p
+    | このお手紙を受け取るには
+.text-blue-900.font.text-1xl.tracking-wider.text-center.font-black.underline
   p
     | FUTURE LETTER
-    span.text-blue-900.main-font.text-1xl.tracking-wider.text-center
+    span.main-font
       | を
-  br
+      span.text-green-600
+        | 友だち追加
 .text-blue-900.main-font.text-1xl.tracking-wider.text-center
   p
-    | 友だち登録する必要があります。
+    | する必要があります。
   br
   p
-    | 下のボタンからぜひ登録してください！
+    | 下のボタンからぜひ追加してください！
 
-div.flex.justify-center.text-5xl.py-6
-  div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL" data-lineId="@727jqlfj" style="display: none;"
-  script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"
+  .flex.justify-center.py-6
+    div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL" data-lineId="@727jqlfj" style="display: none;"
+    script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"
 
 .text-blue-900.main-font.text-xs.tracking-wider.text-center
   p
-    | ※ アプリの操作自体は友だち登録をしなくても行えますが、
+    | ※ アプリの操作自体は友だち追加をしなくても行えますが、
   p
-    | 友だち登録をしないとお手紙は受け取れません。
+    | 友だち追加をしないとお手紙は受け取れません。

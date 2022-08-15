@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const postFormElm = document.querySelector('#form')
   postFormElm.addEventListener('ajax:success', (e) => {
-    // liff_id部分の埋め込み方法を考える。
-    const redirect_url = `https://liff.line.me/liff_id/open?token=${e.detail[0].token}`
+    const liff_id = process.env.LIFF_ID
+    const redirect_url = `https://liff.line.me/${liff_id}/open?token=${e.detail[0].token}`
     liff.shareTargetPicker([
       message = {
         "type": "template",
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "template": {
           "thumbnailImageUrl": "https://cdn.pixabay.com/photo/2016/10/16/21/30/newspaper-1746350_1280.jpg",
             "type": "buttons",
-            "title": "お手紙",
+            "title": "FUTURE LETTER",
             "text": "お手紙を送りたいです！\n宛名を確認してください。",
             "actions": [
                 {
