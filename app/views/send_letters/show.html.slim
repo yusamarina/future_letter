@@ -15,4 +15,7 @@ card.flex.justify-center.items-center
       div.text-blue-900.main-font.text-1xl.px-4.py-2
         = @letter.body
 
+div.text-blue-900.font.text-1xl.tracking-wider.text-center
+  = link_to 'Back', send_letters_path
+
 = javascript_pack_tag 'send_letters/show'
