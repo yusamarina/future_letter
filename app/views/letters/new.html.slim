@@ -6,15 +6,15 @@ h1.text-blue-900.font.text-2xl.tracking-wider.text-center.py-6
 
 div.text-blue-900.main-font.text-1xl.tracking-wider.py-3.px-3
   = form_with(model: @letter, id: 'form', local: false) do |f|
-    .field
+    .field.py-2
       .pb-2
         = f.label :title
       = f.text_field :title, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-    .field.py-5
+    .field.py-3
       .pb-2
         = f.label :body
       = f.text_area :body, class: "resize-none shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", size: "20x8"
-    .field.py-3.text-center
+    .field.py-2.text-center
       = f.label :image
       br
       = f.file_field :image
