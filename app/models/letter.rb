@@ -20,8 +20,8 @@ class Letter < ApplicationRecord
       errors.add(:send_date, "を設定してください")
     elsif self.send_date < Time.now
       errors.add(:send_date, "は未来の時間を選択してください")
-    elsif self.send_date > Time.zone.local(2023, 8, 31, 23, 59)
-      errors.add(:send_date, "は2023年8月31日23時までの時間を選択してください")
+    elsif self.send_date > Time.zone.local(2023, 7, 31, 23, 59)
+      errors.add(:send_date, "は2023年7月31日23時までの時間を選択してください")
     end
   end
 end
