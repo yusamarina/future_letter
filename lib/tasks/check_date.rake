@@ -2,6 +2,7 @@ namespace :check_date do
   desc "push_line"
 
   task push_line: :environment do
+    liff_id = ENV['LIFF_ID']
     letters = Letter.where('send_date <= ? and send_date > ?', Time.now, Time.now - 1.hours)
     letters.each do |letter|
       if SendLetter.find_by(letter_id: letter.id).present?
@@ -17,8 +18,7 @@ namespace :check_date do
                   {
                     "type": "uri",
                     "label": "送ったお手紙を確認する",
-                    # liff_id部分の埋め込み方法を考える。
-                    "uri": "https://liff.line.me/liff_id/send_letters/#{letter.token}"
+                    "uri": "https://liff.line.me/#{liff_id}/send_letters/#{letter.token}"
                   }
               ]
           }
@@ -42,8 +42,7 @@ namespace :check_date do
                   {
                     "type": "uri",
                     "label": "お手紙を読む",
-                    # liff_id部分の埋め込み方法を考える。
-                    "uri": "https://liff.line.me/liff_id/send_letters/#{letter.token}"
+                    "uri": "https://liff.line.me/#{liff_id}/send_letters/#{letter.token}"
                   }
               ]
           }
@@ -69,8 +68,7 @@ namespace :check_date do
                   {
                     "type": "uri",
                     "label": "お手紙を確認する",
-                    # liff_id部分の埋め込み方法を考える。
-                    "uri": "https://liff.line.me/liff_id/letters/#{letter.id}/edit"
+                    "uri": "https://liff.line.me/#{liff_id}/letters/#{letter.id}/edit"
                   }
               ]
           }
@@ -86,6 +84,7 @@ namespace :check_date do
   end
 
   task push_remind: :environment do
+    liff_id = ENV['LIFF_ID']
     letters = Letter.where('send_date <= ? and send_date > ?', Time.now.since(3.days), Time.now)
     letters.each do |letter|
       if SendLetter.where(letter_id: letter.id).blank?
@@ -101,8 +100,7 @@ namespace :check_date do
                     {
                       "type": "uri",
                       "label": "お手紙を確認する",
-                      # liff_id部分の埋め込み方法を考える。
-                      "uri": "https://liff.line.me/liff_id/letters/#{letter.id}/edit"
+                      "uri": "https://liff.line.me/#{liff_id}/letters/#{letter.id}/edit"
                     }
                 ]
             }
