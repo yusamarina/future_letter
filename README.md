@@ -1,4 +1,11 @@
 # FUTURE LETTER
+  大切なひと、未来の自分へ
+  今の気持ちを手紙にして送りませんか？
+
+  ![ダウンロード (2)](https://user-images.githubusercontent.com/94360716/184880195-afce0566-0fe0-4541-abdc-8622e925f3ec.png)
+
+  友だち追加はこちら！
+  ![FUTURE_LETTER_QR](https://user-images.githubusercontent.com/94360716/184880230-5cb7af52-cb00-41fe-a092-5d08555b114d.png)
 
 ## サービス概要
   大切なひとへLINEを使って手紙を送れるサービスです。
