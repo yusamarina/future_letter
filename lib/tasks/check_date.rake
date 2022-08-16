@@ -18,7 +18,7 @@ namespace :check_date do
                   {
                     "type": "uri",
                     "label": "送ったお手紙を確認する",
-                    "uri": "https://liff.line.me/#{liff_id}/send_letters/#{letter.token}"
+                    "uri": "https://liff.line.me/#{liff_id}/login?token=#{letter.token}"
                   }
               ]
           }
@@ -42,7 +42,7 @@ namespace :check_date do
                   {
                     "type": "uri",
                     "label": "お手紙を読む",
-                    "uri": "https://liff.line.me/#{liff_id}/send_letters/#{letter.token}"
+                    "uri": "https://liff.line.me/#{liff_id}/login?token=#{letter.token}"
                   }
               ]
           }
@@ -68,7 +68,7 @@ namespace :check_date do
                   {
                     "type": "uri",
                     "label": "お手紙を確認する",
-                    "uri": "https://liff.line.me/#{liff_id}/letters/#{letter.id}/edit"
+                    "uri": "https://liff.line.me/#{liff_id}/confirm?id=#{letter.id}"
                   }
               ]
           }
@@ -100,7 +100,7 @@ namespace :check_date do
                     {
                       "type": "uri",
                       "label": "お手紙を確認する",
-                      "uri": "https://liff.line.me/#{liff_id}/letters/#{letter.id}/edit"
+                      "uri": "https://liff.line.me/#{liff_id}/confirm?id=#{letter.id}"
                     }
                 ]
             }
