@@ -6,7 +6,7 @@ class LettersController < ApplicationController
   require 'uri'
 
   def index
-    @letters = Letter.where(user_id: current_user.id).includes(:user).order("created_at DESC")
+    @letters = Letter.where(user_id: current_user.id).includes(:user).order("send_date ASC")
   end
 
   def show; end
@@ -73,7 +73,9 @@ class LettersController < ApplicationController
     p response
   end
 
-  def edit; end
+  def edit
+    @letter.image.cache! if @letter.image.present?
+  end
 
   def update
     if @letter.update(letter_params)
@@ -110,6 +112,6 @@ class LettersController < ApplicationController
   end
 
   def letter_params
-    params.require(:letter).permit(:title, :body, :image, :user_id, :template_id, :token, :send_date)
+    params.require(:letter).permit(:title, :body, :image, :image_cache, :user_id, :template_id, :token, :send_date)
   end
 end
