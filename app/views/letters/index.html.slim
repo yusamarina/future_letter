@@ -1,7 +1,9 @@
-h1.text-blue-900.font.text-2xl.tracking-wider.text-center.py-6
-  | DRAFT LETTER
-h2.text-center.leading-10.container.mx-auto.text-1xl.text-blue-900.main-font.pb-6
+h1.text-center.leading-10.container.mx-auto.text-1xl.text-blue-900.main-font.py-6
   = link_to '新しい手紙を書く', new_letter_path, class: "m-1 bg-yellow-100 hover:bg-yellow-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
+
+h1.text-blue-900.font.text-2xl.tracking-wider.text-center.pb-6
+  | DRAFT LETTER
+
 - if @letters.present?
   div.place-items-auto
     = render @letters

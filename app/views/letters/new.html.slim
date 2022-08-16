@@ -3,7 +3,16 @@ h1.text-blue-900.font.text-2xl.tracking-wider.text-center.py-6
 
 div.text-blue-900.main-font.text-1xl.tracking-wider.px-3
   = form_with(model: @letter, id: 'form', local: false) do |f|
-    .field.py-2.text-center
+    .field.pb-3.text-center.font-black
+      .pb-2
+        = f.label :image
+      .justify-center
+        = f.file_field :image
+        = f.hidden_field :image_cache
+      - if @letter.image.present?
+        .pt-2
+          = image_tag(@letter.image.url)
+    .field.py-3.text-center
       .pb-2.font-black
         = f.label :title
       .flex.items-center
@@ -14,10 +23,6 @@ div.text-blue-900.main-font.text-1xl.tracking-wider.px-3
       .pb-2.font-black
         = f.label :body
       = f.text_area :body, class: "resize-none shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", size: "20x8", placeholder: "手紙を書いたよ！いつもありがとう。"
-    .field.py-2.text-center.font-black
-      = f.label :image
-      br
-      = f.file_field :image
     .field.py-3.text-center
       .pb-2.font-black
         = f.label :send_date
