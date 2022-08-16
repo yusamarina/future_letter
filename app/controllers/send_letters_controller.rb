@@ -41,5 +41,10 @@ class SendLettersController < ApplicationController
   end
 
   def destroy
+    @letter.destroy!
+    respond_to do |format|
+      format.html { redirect_to send_letters_url }
+      format.json { head :no_content }
+    end
   end
 end

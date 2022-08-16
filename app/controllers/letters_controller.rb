@@ -23,7 +23,7 @@ class LettersController < ApplicationController
     render json: @letter
     message = {
       "type": "text",
-      "text": "手紙の宛先が確認されました！\n設定日時にお手紙が相手へ届きます。"
+      "text": "お手紙の宛先が確認されました！\n設定日時にお手紙が相手へ届きます。"
     }
     client = Line::Bot::Client.new { |config|
     config.channel_secret = ENV['LINE_CHANNEL_SECRET']
@@ -63,7 +63,7 @@ class LettersController < ApplicationController
   def message
     message = {
       "type": 'text',
-      "text": "お手紙の宛先確認メッセージを送りました！\nお返事があるまでお待ちください。",
+      "text": "お手紙の宛先確認メッセージを送りました！\n送信許可があるまでお待ちください。",
     }
     client = Line::Bot::Client.new { |config|
       config.channel_secret = ENV['LINE_CHANNEL_SECRET']

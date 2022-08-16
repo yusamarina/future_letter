@@ -1,38 +1,42 @@
 h1.text-blue-900.font.text-2xl.tracking-wider.text-center.py-6
   |NEW LETTER
 
-#error_explanation
-  = render 'shared/err_msg', letter: @letter
-
-div.text-blue-900.main-font.text-1xl.tracking-wider.py-3.px-3
+div.text-blue-900.main-font.text-1xl.tracking-wider.px-3
   = form_with(model: @letter, id: 'form', local: false) do |f|
-    .field.py-2
-      .pb-2
-        = f.label :title
-      = f.text_field :title, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-    .field.py-3
-      .pb-2
-        = f.label :body
-      = f.text_area :body, class: "resize-none shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", size: "20x8"
     .field.py-2.text-center
+      .pb-2.font-black
+        = f.label :title
+      .flex.items-center
+        = f.text_field :title, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: "〇〇〇"
+        span.pl-3.font-black
+          | へ
+    .field.py-3.text-center
+      .pb-2.font-black
+        = f.label :body
+      = f.text_area :body, class: "resize-none shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", size: "20x8", placeholder: "手紙を書いたよ！いつもありがとう。"
+    .field.py-2.text-center.font-black
       = f.label :image
       br
       = f.file_field :image
     .field.py-3.text-center
-      .pb-2
+      .pb-2.font-black
         = f.label :send_date
         br
       .font.text-1xl
         = f.datetime_select :send_date, minute_step: 60, default: Time.now + 1.hours, start_year: 2022, end_year: 2023, date_separator: '/', use_month_numbers: true
+
+    #error_explanation
+      = render 'shared/err_msg', letter: @letter
+
     .actions.text-center.py-3
       = f.submit :手紙を送る相手を選ぶ, class: "m-1 bg-yellow-100 hover:bg-yellow-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
 
-.text-blue-900.main-font.text-xs.tracking-wider.text-center.pb-3
+.text-blue-900.main-font.text-xs.tracking-wider.text-center.pt-3.pb-6
   p
     | ※ 画像を選択した場合、動作が遅い場合があります。
   p
     | しばらくお待ちください。
-    br
+  br
   p
     | ※ 自分宛に送信する場合は、
   p
