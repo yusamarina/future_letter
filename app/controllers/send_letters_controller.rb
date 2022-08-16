@@ -1,8 +1,12 @@
 class SendLettersController < ApplicationController
-  skip_before_action :login_required, only: %i[show]
+  skip_before_action :login_required, only: %i[login]
 
   require 'net/http'
   require 'uri'
+
+  def login
+    render layout: 'login'
+  end
 
   def index
     user = current_user
@@ -19,8 +23,7 @@ class SendLettersController < ApplicationController
     end
   end
 
-  def new
-  end
+  def new;  end
 
   def create
     idToken = params[:idToken]
@@ -32,19 +35,5 @@ class SendLettersController < ApplicationController
     letter = Letter.find_by(token: params[:letterToken])
     send_letter = SendLetter.new(destination_id: destination_id ,letter_id: letter.id)
     send_letter.save! if SendLetter.find_by(letter_id: letter.id) == nil
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-    @letter.destroy!
-    respond_to do |format|
-      format.html { redirect_to send_letters_url }
-      format.json { head :no_content }
-    end
   end
 end

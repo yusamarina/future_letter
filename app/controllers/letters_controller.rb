@@ -1,5 +1,5 @@
 class LettersController < ApplicationController
-  skip_before_action :login_required, only: %i[open]
+  skip_before_action :login_required, only: %i[open confirm]
   before_action :set_letter, only: %i[edit update destroy]
 
   require 'net/http'
@@ -8,8 +8,6 @@ class LettersController < ApplicationController
   def index
     @letters = Letter.where(user_id: current_user.id).includes(:user).order("send_date ASC")
   end
-
-  def show; end
 
   def invite
     @user = User.find(session[:user_id])
@@ -96,6 +94,10 @@ class LettersController < ApplicationController
   end
 
   def open
+    render layout: 'login'
+  end
+
+  def confirm
     render layout: 'login'
   end
 
