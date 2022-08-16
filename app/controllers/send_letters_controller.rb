@@ -1,5 +1,5 @@
 class SendLettersController < ApplicationController
-  skip_before_action :login_required, only: %i[show login]
+  skip_before_action :login_required, only: %i[login]
 
   require 'net/http'
   require 'uri'
