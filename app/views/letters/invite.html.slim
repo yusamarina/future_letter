@@ -11,7 +11,7 @@
       | を押してください。
       br
 
-card.flex.justify-center.items-center
+card.flex.justify-center.items-center.py-3
   div.text-center.leading-5
     div.shadow-lg.w-auto
       div.w-full
@@ -23,5 +23,6 @@ card.flex.justify-center.items-center
         = @letter.title
         span.main-font.text-xs
           | へ
-div.text-blue-900.m-5.font.text-center
+
+div.text-blue-900.font.text-center
   = link_to "OK", reserve_letter_path(@letter.id), id: 'ok', remote: true, data: { confirm: "FUTURE LETTER 公式アカウントより\n後日お手紙が届きます。よろしいですか?" }, class: "m-1 bg-pink-100 hover:bg-pink-200 border border-blue-900 rounded-full shadow py-2 px-4"
