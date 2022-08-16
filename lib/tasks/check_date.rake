@@ -8,12 +8,12 @@ namespace :check_date do
       if SendLetter.find_by(letter_id: letter.id).present?
         message = {
           "type": "template",
-          "altText": "お手紙が送られました。",
+          "altText": "相手へお手紙が送られました。",
           "template": {
               "thumbnailImageUrl": "https://cdn.pixabay.com/photo/2016/09/10/17/17/letters-1659715_1280.jpg",
               "type": "buttons",
               "title": "FUTURE LETTER",
-              "text": "お手紙を送信しました！",
+              "text": "相手へお手紙が送られました！",
               "actions": [
                   {
                     "type": "uri",

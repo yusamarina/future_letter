@@ -9,7 +9,7 @@ ja:
       user:
         line_user_id: LINEID
       letter:
-        title: 手紙を送りたい相手のお名前
+        title: 手紙を送りたい相手の名前
         body: 手紙の本文
         image: 画像
         send_date: 手紙を送る日時

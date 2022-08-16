@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         liff.closeWindow()
         fetch('/message');
       } else {
-        alert("手紙を下書き保存しました。")
+        alert("下書き保存しました。")
         window.location = '/letters';
       }
     })
