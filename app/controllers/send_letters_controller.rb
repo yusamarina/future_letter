@@ -36,12 +36,4 @@ class SendLettersController < ApplicationController
     send_letter = SendLetter.new(destination_id: destination_id ,letter_id: letter.id)
     send_letter.save! if SendLetter.find_by(letter_id: letter.id) == nil
   end
-
-  def destroy
-    @letter.destroy!
-    respond_to do |format|
-      format.html { redirect_to send_letters_url }
-      format.json { head :no_content }
-    end
-  end
 end
