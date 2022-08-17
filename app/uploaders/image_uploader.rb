@@ -14,12 +14,12 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def extension_allowlist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 
   def filename
     original_filename if original_filename
   end
 
-  process resize_to_fill: [350, 350, "Center"]
+  process resize_to_fill: [350, 350, 'Center']
 end

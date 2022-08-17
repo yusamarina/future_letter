@@ -8,7 +8,7 @@ module ApplicationHelper
       description: '大切なひと、未来の自分へ、今の気持ちをお手紙に残しませんか？送信日時を設定し、サプライズでお手紙を送るサービスです。',
       keywords: '手紙',
       canonical: request.original_url,
-      noindex: ! Rails.env.production?,
+      noindex: !Rails.env.production?,
       icon: [
         { href: image_url('favicon.ico') },
         { href: image_url('icon_180.jpg'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/jpg' },
