@@ -1,0 +1,48 @@
+div.text-blue-900.main-font.text-1xl.tracking-wider.px-3
+  = form_with(model: letter, id: 'form', local: false) do |f|
+    .field.pb-3.text-center.font-black
+      .pb-2
+        = f.label :image
+      .justify-center
+        = f.file_field :image
+        = f.hidden_field :image_cache
+      - if letter.image.present?
+        .pt-2
+          = image_tag(letter.image.url)
+    .field.py-3.text-center
+      .pb-2.font-black
+        = f.label :title
+      .flex.items-center
+        = f.text_field :title, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: "〇〇〇"
+        span.pl-3.font-black
+          | へ
+    .field.py-3.text-center
+      .pb-2.font-black
+        = f.label :body
+      = f.text_area :body, class: "resize-none shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", size: "20x8", placeholder: "手紙を書いたよ！いつもありがとう。"
+    .field.py-3.text-center
+      .pb-2.font-black
+        = f.label :send_date
+        br
+      .font.text-1xl
+        = f.datetime_select :send_date, minute_step: 60, default: Time.now + 1.hours, start_year: 2022, end_year: 2023, date_separator: '/', use_month_numbers: true
+
+    #error_explanation
+      = render 'shared/err_msg', letter: letter
+
+    .actions.text-center.py-3
+      = f.submit :手紙を送る相手を選ぶ, class: "m-1 bg-yellow-100 hover:bg-yellow-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
+
+.text-blue-900.main-font.text-xs.tracking-wider.text-center.pt-3.pb-6
+  p
+    | ※ 画像を選択した場合、動作が遅い場合があります。
+  p
+    | しばらくお待ちください。
+  br
+  p
+    | ※ 自分宛に送信する場合は、
+  p
+    | 事前に自分専用のトークルームを作成して送信してください。
+
+div.text-blue-900.font.text-1xl.tracking-wider.text-center
+  = link_to 'Back', letters_path
