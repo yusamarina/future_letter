@@ -4,9 +4,23 @@ Style/FrozenStringLiteralComment:
 Style/Documentation:
   Enabled: false
 
+Metrics/AbcSize:
+  Max: 30
+
 Metrics/BlockLength:
+  Max: 30
   Exclude:
+    - 'Gemfile'
+    - 'config/**/*'
     - 'spec/**/*'
+
+Metrics/ClassLength:
+  CountComments: false
+  Max: 300
+
+Metrics/MethodLength:
+  CountComments: false
+  Max: 30
 
 AllCops:
   Exclude:

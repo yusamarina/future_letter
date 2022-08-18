@@ -10,7 +10,7 @@ class SendLettersController < ApplicationController
 
   def index
     user = current_user
-    @send_letters = user.letters.joins(:send_letters).order("send_date DESC")
+    @send_letters = user.letters.joins(:send_letters).order('send_date DESC')
   end
 
   def show
@@ -23,17 +23,16 @@ class SendLettersController < ApplicationController
     end
   end
 
-  def new;  end
+  def new; end
 
   def create
-    idToken = params[:idToken]
-    channelId = ENV['CHANNEL_ID']
-    res = Net::HTTP.post_form(URI.parse('https://api.line.me/oauth2/v2.1/verify'),
-                          {'id_token'=>idToken, 'client_id'=>channelId})
-    render :json => res.body
+    id_token = params[:idToken]
+    channel_id = ENV['CHANNEL_ID']
+    res = Net::HTTP.post_form(URI.parse('https://api.line.me/oauth2/v2.1/verify'), { 'id_token' => id_token, 'client_id' => channel_id })
+    render json: res.body
     destination_id = params[:dataId]
     letter = Letter.find_by(token: params[:letterToken])
-    send_letter = SendLetter.new(destination_id: destination_id ,letter_id: letter.id)
+    send_letter = SendLetter.new(destination_id: destination_id, letter_id: letter.id)
     send_letter.save! if SendLetter.find_by(letter_id: letter.id) == nil
   end
 end

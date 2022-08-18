@@ -3,9 +3,9 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
   before_action :login_required
 
-  rescue_from StandardError, with: :render_500
-  rescue_from ActiveRecord::RecordNotFound, with: :render_404
-  rescue_from ActionController::RoutingError, with: :render_404
+  rescue_from StandardError, with: :render500
+  rescue_from ActiveRecord::RecordNotFound, with: :render404
+  rescue_from ActionController::RoutingError, with: :render404
 
   private
 
@@ -21,11 +21,11 @@ class ApplicationController < ActionController::Base
     redirect_to top_path unless current_user
   end
 
-  def render_404
+  def render404
     render file: Rails.root.join('public/404.html'), layout: false, status: :not_found
   end
 
-  def render_500(error = nil)
+  def render500(error = nil)
     logger.error(error.message)
     logger.error(error.backtrace.join('\n'))
     ExceptionNotifier.notify_exception(e, env: request.env, data: { message: 'error' })

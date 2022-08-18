@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         data_id = data.id
       })
       .then(() => {
-        window.location = '/letters'
+        window.location = '/top'
       })
     })
 })

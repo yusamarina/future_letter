@@ -6,7 +6,7 @@ class LettersController < ApplicationController
   require 'uri'
 
   def index
-    @letters = Letter.where(user_id: current_user.id).includes(:user).order("send_date ASC")
+    @letters = Letter.where(user_id: current_user.id).includes(:user).order('send_date ASC')
   end
 
   def invite
@@ -20,22 +20,22 @@ class LettersController < ApplicationController
     @letter.save!(validate: false)
     render json: @letter
     message = {
-      "type": "text",
+      "type": 'text',
       "text": "お手紙の宛先が確認されました！\n設定日時にお手紙が相手へ届きます。"
     }
     client = Line::Bot::Client.new { |config|
-    config.channel_secret = ENV['LINE_CHANNEL_SECRET']
-    config.channel_token = ENV['LINE_CHANNEL_TOKEN']
+      config.channel_secret = ENV['LINE_CHANNEL_SECRET']
+      config.channel_token = ENV['LINE_CHANNEL_TOKEN']
     }
     response = client.push_message(@letter.user.line_user_id, message)
     p response
     message = {
-      "type": "text",
-      "text": "お手紙はサプライズで届きます！\nお楽しみに...!"
+      "type": 'text',
+      "text": "お手紙はサプライズで届きます！$\nお届けまでお楽しみに...!"
     }
     client = Line::Bot::Client.new { |config|
-    config.channel_secret = ENV['LINE_CHANNEL_SECRET']
-    config.channel_token = ENV['LINE_CHANNEL_TOKEN']
+      config.channel_secret = ENV['LINE_CHANNEL_SECRET']
+      config.channel_token = ENV['LINE_CHANNEL_TOKEN']
     }
     response = client.push_message(User.find(session[:user_id]).line_user_id, message)
     p response
