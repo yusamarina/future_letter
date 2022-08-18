@@ -9,7 +9,7 @@ h1.text-blue-900.font.text-2xl.tracking-wider.text-center.py-6
 
 - if @send_letters.present?
   - @send_letters.each do |send_letter|
-    div.place-items-auto.py-3
+    div.place-items-auto.pt-3
       div.text-center.text-blue-900.font.text-base.pb-1
         = l send_letter.send_date
         br
@@ -21,7 +21,7 @@ h1.text-blue-900.font.text-2xl.tracking-wider.text-center.py-6
           div.text-blue-900.font
             = link_to 'Destroy', send_letter, method: :delete, data: { confirm: "削除してもよろしいですか?" }, class: "m-1 bg-pink-100 hover:bg-pink-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
 - else
-  p.text-blue-900.font.text-1xl.tracking-wider.text-center
+  p.text-blue-900.font.text-1xl.tracking-wider.text-center.pt-3
     | nothing...
 
 = javascript_pack_tag 'send_letters/index'

@@ -31,7 +31,7 @@ class LettersController < ApplicationController
     p response
     message = {
       "type": 'text',
-      "text": "お手紙はサプライズで届きます！$\nお届けまでお楽しみに...!"
+      "text": "お手紙はサプライズで届きます！\nお届けまでお楽しみに...!"
     }
     client = Line::Bot::Client.new { |config|
       config.channel_secret = ENV['LINE_CHANNEL_SECRET']
