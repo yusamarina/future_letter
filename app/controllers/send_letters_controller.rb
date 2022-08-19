@@ -1,5 +1,6 @@
 class SendLettersController < ApplicationController
   skip_before_action :login_required, only: %i[login]
+  before_action :set_letter, only: %i[destroy]
 
   require 'net/http'
   require 'uri'
@@ -34,5 +35,21 @@ class SendLettersController < ApplicationController
     letter = Letter.find_by(token: params[:letterToken])
     send_letter = SendLetter.new(destination_id: destination_id, letter_id: letter.id)
     send_letter.save! if SendLetter.find_by(letter_id: letter.id) == nil
+  end
+
+  def destroy
+    @send_letter.destroy!
+  end
+
+  private
+
+  def set_letter
+    @send_letter = Letter.find(params[:id])
+    user = @send_letter.user
+    if user != current_user
+      respond_to do |format|
+        format.html { render file: "#{Rails.root}/public/404.html", layout: false, status: :not_found }
+      end
+    end
   end
 end
