@@ -20,7 +20,7 @@ class SendLettersController < ApplicationController
     if @letter.user || send_letter.destination == current_user
       render layout: 'login'
     else
-      redirect_to(top_path) unless user == current_user
+      redirect_to(top_path) 
     end
   end
 

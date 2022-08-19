@@ -3,9 +3,14 @@ h1.text-blue-900.font.text-2xl.tracking-wider.text-center.py-6
 
 .text-blue-900.main-font.text-xs.tracking-wider.text-center.pb-3
   p
-    | 送信相手が登録されているため、手紙の編集は行えません。
+    | ※ 送信相手が登録されているため、
   p
-    | ※ 手紙を削除する場合は、手紙が送られてから行ってください。
+    | 手紙の編集/削除は行えません。
+  / 送信済みの手紙を削除できるようにするか本リリース前に決める。
+  / p
+  /   | 送信相手が登録されているため、手紙の編集は行えません。
+  / p
+  /   | ※ 手紙を削除する場合は、手紙が送られてから行ってください。
 
 - if @send_letters.present?
   - @send_letters.each do |send_letter|
@@ -18,9 +23,10 @@ h1.text-blue-900.font.text-2xl.tracking-wider.text-center.py-6
           div.text-center.text-blue-900.main-font.text-base
             = link_to send_letter.title + " " + "へ", read_letter_path(send_letter.token), class: "bg-yellow-100 py-2 px-4 border border-blue-900 rounded-full shadow hover:bg-yellow-200"
             br
-          - if send_letter.send_date <= Time.now
-            div.text-blue-900.font
-              = link_to 'Destroy', letter_path(send_letter.id), method: :delete, data: { confirm: "削除してもよろしいですか?" }, remote: true, class: "m-1 bg-pink-100 hover:bg-pink-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
+          / 送信済みの手紙を削除できるようにするか本リリース前に決める。
+          / - if send_letter.send_date <= Time.now
+          /   div.text-blue-900.font
+          /     = link_to 'Destroy', letter_path(send_letter.id), method: :delete, data: { confirm: "削除してもよろしいですか?" }, remote: true, class: "m-1 bg-pink-100 hover:bg-pink-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
 - else
   p.text-blue-900.font.text-1xl.tracking-wider.text-center.pt-3
     | nothing...
