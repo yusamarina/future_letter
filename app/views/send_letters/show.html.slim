@@ -12,7 +12,8 @@ card.flex.justify-center.items-center
         span.text-blue-900.main-font.text-xs
           | へ
       div.text-blue-900.main-font.text-1xl.px-4.py-2
-        = @letter.body
+        / = @letter.body
+        = safe_join(@letter.body.split("\n"),tag(:br))
 
 div.text-blue-900.font.text-1xl.tracking-wider.text-center.pt-6
   = link_to 'Back', send_letters_path
