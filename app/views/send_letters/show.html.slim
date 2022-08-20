@@ -1,18 +1,18 @@
 card.flex.justify-center.items-center
-  div.text-center.leading-5
-    div.shadow-lg.w-auto
-      div.w-full
-        - if @letter.image.present?
-          = image_tag @letter.image.to_s
-        - else
-          = image_tag('default.jpg')
+  div.shadow-lg.w-auto
+    div.w-full
+      - if @letter.image.present?
+        = image_tag @letter.image.to_s
+      - else
+        = image_tag('default.jpg')
 
-      div.text-blue-900.main-font.text-1xl.px-4.py-2
+    .text-blue-900.main-font
+      div.text-1xl.pt-6.px-3.text-center
         = @letter.title
-        span.text-blue-900.main-font.text-xs
+        span.text-xs
           | へ
-      div.text-blue-900.main-font.text-1xl.px-4.py-2
-        = @letter.body
+      div.text-1xl.p-6.leading-5
+        = safe_join(@letter.body.split("\n"),tag(:br))
 
 div.text-blue-900.font.text-1xl.tracking-wider.text-center.pt-6
   = link_to 'Back', send_letters_path
