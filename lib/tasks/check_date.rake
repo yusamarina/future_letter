@@ -85,7 +85,7 @@ namespace :check_date do
 
   task push_remind: :environment do
     liff_id = ENV['LIFF_ID']
-    letters = Letter.where('send_date <= ? and send_date > ?', Time.now.since(3.days), Time.now)
+    letters = Letter.where('send_date <= ? and send_date > ?', Time.now.since(3.days + 3.hours), Time.now + 3.hours)
     letters.each do |letter|
       if SendLetter.where(letter_id: letter.id).blank?
         message = {

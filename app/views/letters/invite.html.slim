@@ -1,28 +1,60 @@
 = javascript_pack_tag 'letters/invite'
 
-.text-blue-900.main-font.text-1xl.tracking-wider.text-center
-  p
-    | サプライズでお手紙を送りたいです。
-  p
-    | 表示されているお名前が正しければ
-  p.text-blue-900.font.text-1xl.tracking-wider.text-center
-    | 「OK」
-    span.text-blue-900.main-font.text-1xl.tracking-wider.text-center
-      | を押してください。
-      br
+- if @letter.send_date > Time.now
+  - if SendLetter.find_by(letter_id: @letter.id)
+    .text-blue-900.main-font.text-1xl.tracking-wider.text-center
+      p
+        | お手紙が届くまでお待ちください！
 
-card.flex.justify-center.items-center.py-3
-  div.text-center.leading-5
-    div.shadow-lg.w-auto
-      div.w-full
-        - if @letter.image.present?
-          = image_tag @letter.image.to_s
-        - else
-          = image_tag('default.jpg')
-      div.text-blue-900.main-font.text-1xl.px-4.py-2
-        = @letter.title
-        span.main-font.text-xs
-          | へ
+    card.flex.justify-center.items-center.py-3
+      div.text-center.leading-5
+        div.shadow-lg.w-auto
+          div.w-full
+            = image_tag('look_forward.jpg')
 
-.text-blue-900.font.text-center.mt-3
-  = link_to "OK", reserve_letter_path(@letter.id), id: 'ok', remote: true, data: { confirm: "FUTURE LETTER 公式アカウントより\n後日お手紙が届きます。よろしいですか?" }, class: "m-1 bg-pink-100 hover:bg-pink-200 border border-blue-900 rounded-full shadow py-2 px-4"
+  -else
+    .text-blue-900.main-font.text-1xl.tracking-wider.text-center
+      p
+        | サプライズでお手紙を送りたいです。
+      p
+        | 表示されているお名前が正しければ
+      p.text-blue-900.font.text-1xl.tracking-wider.text-center
+        | 「OK」
+        span.text-blue-900.main-font.text-1xl.tracking-wider.text-center
+          | を押してください。
+          br
+
+    card.flex.justify-center.items-center.py-3
+      div.text-center.leading-5
+        div.shadow-lg.w-auto
+          div.w-full
+            - if @letter.image.present?
+              = image_tag @letter.image.to_s
+            - else
+              = image_tag('default.jpg')
+          div.text-blue-900.main-font.text-1xl.px-4.py-2
+            = @letter.title
+            span.main-font.text-xs
+              | へ
+
+    .text-blue-900.font.text-center.mt-3
+      = link_to "OK", reserve_letter_path(@letter.id), id: 'ok', remote: true, data: { confirm: "FUTURE LETTER 公式アカウントより\n後日お手紙が届きます。よろしいですか?" }, class: "m-1 bg-pink-100 hover:bg-pink-200 border border-blue-900 rounded-full shadow py-2 px-4"
+
+- else
+  .text-blue-900.main-font.tracking-wider.text-center
+    .text-1xl
+      p
+        | 送信予定時刻が過ぎているため
+      p
+        | お手紙を開けません…。
+    .text-xs.pt-3
+      p
+        | ※ お手紙を受け取っていない場合は、
+      p
+        | 再度送信して欲しいことを送信者へお伝えください！
+
+  card.flex.justify-center.items-center.py-3
+    div.text-center.leading-5
+      div.shadow-lg.w-auto
+        div.w-full
+          = image_tag('expired.jpg')
