@@ -10,7 +10,6 @@ class LettersController < ApplicationController
   end
 
   def invite
-    @user = User.find(session[:user_id])
     @letter = Letter.find_by(token: params[:token])
     render layout: 'login'
   end

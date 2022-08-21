@@ -17,10 +17,10 @@ class SendLettersController < ApplicationController
   def show
     @letter = Letter.find_by(token: params[:token])
     send_letter = SendLetter.find_by(letter_id: @letter.id)
-    if @letter.user || send_letter.destination == current_user
+    if @letter.user || send_letter.destination_id == current_user
       render layout: 'login'
     else
-      redirect_to(top_path) 
+      redirect_to(top_path)
     end
   end
 
