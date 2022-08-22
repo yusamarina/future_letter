@@ -1,4 +1,5 @@
 class AnniversariesController < ApplicationController
+  skip_before_action :login_required, only: %i[write]
   before_action :set_anniversary, only: %i[show edit update destroy]
 
   def index
@@ -37,6 +38,10 @@ class AnniversariesController < ApplicationController
 
   def destroy
     @anniversary.destroy!
+  end
+
+  def write
+    render layout: 'login'
   end
 
   private

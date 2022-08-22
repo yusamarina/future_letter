@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get 'send_letters/:token', to: 'send_letters#show', as: 'read_letter'
   get 'login', to: 'send_letters#login'
 
+  get 'write', to: 'anniversaries#write'
+
   get 'privacy', to: 'home#privacy'
   get 'terms', to: 'home#terms'
   get 'description', to: 'home#description'
