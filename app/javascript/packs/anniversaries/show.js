@@ -30,10 +30,4 @@ document.addEventListener('DOMContentLoaded', () => {
           data_id = data.id
         })
     })
-
-    .then(() => {
-      if (!liff.isLoggedIn()) {
-        liff.login();
-      }
-    })
 })
