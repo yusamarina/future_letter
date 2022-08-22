@@ -34,7 +34,7 @@ namespace :check_date do
           "type": 'template',
           "altText": 'お手紙が届きました。',
           "template": {
-              "thumbnailImageUrl": "https://cdn.pixabay.com/photo/2016/09/10/17/17/letters-1659715_1280.jpg",
+              "thumbnailImageUrl": "https://images.unsplash.com/photo-1605364850023-a917c39f8fe9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fGxldHRlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
               "type": 'buttons',
               "title": 'FUTURE LETTER',
               "text": 'お手紙が届いています！',
@@ -60,7 +60,7 @@ namespace :check_date do
           "type": 'template',
           "altText": '送信相手が未選択のため、送信予定時刻にお手紙を送れませんでした。',
           "template": {
-              "thumbnailImageUrl": "https://cdn.pixabay.com/photo/2016/09/10/17/17/letters-1659715_1280.jpg",
+              "thumbnailImageUrl": "https://images.unsplash.com/photo-1603437873662-dc1f44901825?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fGNsb3VkfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
               "type": 'buttons',
               "title": 'FUTURE LETTER',
               "text": "送信予定時刻を過ぎました。\n送信時刻の再設定、お手紙を送る相手を選択しましょう。",
@@ -90,21 +90,21 @@ namespace :check_date do
       if SendLetter.where(letter_id: letter.id).blank?
         message = {
           "type": 'template',
-            "altText": '送信相手が選択されていないお手紙があります。',
-            "template": {
-                "thumbnailImageUrl": "https://cdn.pixabay.com/photo/2016/09/10/17/17/letters-1659715_1280.jpg",
-                "type": 'buttons',
-                "title": 'FUTURE LETTER',
-                "text": "設定した送信日時が近くなりました。\nお手紙を送る相手を選択しましょう。",
-                "actions": [
-                    {
-                      "type": 'uri',
-                      "label": 'お手紙を確認する',
-                      "uri": "https://liff.line.me/#{liff_id}/confirm?id=#{letter.id}"
-                    }
-                ]
-            }
+          "altText": '送信相手が選択されていないお手紙があります。',
+          "template": {
+              "thumbnailImageUrl": "https://images.unsplash.com/photo-1603437873662-dc1f44901825?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fGNsb3VkfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
+              "type": 'buttons',
+              "title": 'FUTURE LETTER',
+              "text": "設定した送信日時が近くなりました。\nお手紙を送る相手を選択しましょう。",
+              "actions": [
+                  {
+                    "type": 'uri',
+                    "label": 'お手紙を確認する',
+                    "uri": "https://liff.line.me/#{liff_id}/confirm?id=#{letter.id}"
+                  }
+              ]
           }
+        }
         client = Line::Bot::Client.new{ |config|
           config.channel_secret = ENV['LINE_CHANNEL_SECRET']
           config.channel_token = ENV['LINE_CHANNEL_TOKEN']
@@ -112,6 +112,36 @@ namespace :check_date do
         response = client.push_message(letter.user.line_user_id, message)
         p response
       end
+    end
+  end
+
+  task push_suggest: :environment do
+    liff_id = ENV['LIFF_ID']
+    anniversaries = Anniversary.where('date <= ? and date > ?', Date.today.since(30.days), Date.today.since(29.days))
+    anniversaries.each do |anniversary|
+      message = {
+        "type": 'template',
+        "altText": 'もうすぐ記念日です。',
+        "template": {
+            "thumbnailImageUrl": "https://images.unsplash.com/photo-1603437873662-dc1f44901825?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fGNsb3VkfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
+            "type": 'buttons',
+            "title": 'FUTURE LETTER',
+            "text": "記念日の30日前になりました。\nお手紙を書きませんか?",
+            "actions": [
+                {
+                  "type": 'uri',
+                  "label": '記念日を確認する',
+                  "uri": "https://liff.line.me/#{liff_id}/write?id=#{anniversary.id}"
+                }
+            ]
+        }
+      }
+      client = Line::Bot::Client.new{ |config|
+        config.channel_secret = ENV['LINE_CHANNEL_SECRET']
+        config.channel_token = ENV['LINE_CHANNEL_TOKEN']
+      }
+      response = client.push_message(anniversary.user.line_user_id, message)
+      p response
     end
   end
 end
