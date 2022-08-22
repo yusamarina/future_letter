@@ -4,6 +4,28 @@ h1.text-center.leading-10.container.mx-auto.text-1xl.text-blue-900.main-font.py-
 h1.text-blue-900.font.text-2xl.tracking-wider.text-center.pb-6
   | MY ANNIVERSARY
 
+.text-blue-900.main-font.text-1xl.tracking-wider.text-center.pb-6
+  p
+    | 未来の日時で登録すると
+  p
+    | 記念日の
+    span.font
+      | 30
+      span.main-font
+        | 日前に通知が来ます。
+  .text-xs.pt-3
+    p
+      | ※ 通知は
+      span.font
+        | 30
+        span.main-font
+          | 日前になった記念日のみ
+    p
+      | 届く仕様になっておりますが
+    p
+      | 過去の日時で登録することも出来ます。
+
+
 - if @anniversaries.present?
   div.place-items-auto
     = render @anniversaries

@@ -10,7 +10,7 @@ namespace :check_date do
           "type": 'template',
           "altText": '相手へお手紙が送られました。',
           "template": {
-              "thumbnailImageUrl": "https://cdn.pixabay.com/photo/2016/09/10/17/17/letters-1659715_1280.jpg",
+              "thumbnailImageUrl": "https://images.unsplash.com/photo-1559057287-ce0f595679a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
               "type": 'buttons',
               "title": 'FUTURE LETTER',
               "text": '相手へお手紙が送られました！',
