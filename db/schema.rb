@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_11_062531) do
+ActiveRecord::Schema.define(version: 2022_08_20_173334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "anniversaries", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name", null: false
+    t.datetime "date", null: false
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_anniversaries_on_user_id"
+  end
 
   create_table "letters", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -51,6 +61,7 @@ ActiveRecord::Schema.define(version: 2022_08_11_062531) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "anniversaries", "users"
   add_foreign_key "letters", "templates"
   add_foreign_key "letters", "users"
   add_foreign_key "send_letters", "letters"
