@@ -1,0 +1,13 @@
+.flex.justify-center.items-center.p-3.m-auto.break-words
+  div id="anniversary-#{anniversary.id}"
+    .text-center.leading-5.text-blue-900.text-1xl
+      .font.px-4.py-2
+        = link_to edit_anniversary_path(anniversary) do
+          = l anniversary.date, format: :short
+          br
+      .main-font.px-4.py-2
+        = link_to anniversary.name, edit_anniversary_path(anniversary), class: "bg-yellow-100 py-2 px-4 border border-blue-900 rounded-full shadow hover:bg-yellow-200"
+      .main-font.px-4.py-2.max-w-screen-sm
+        = anniversary.description
+      .font.m-5
+        = link_to 'Destroy', anniversary_path(anniversary.id), method: :delete, data: { confirm: "削除してもよろしいですか?" }, remote: true, class: "m-1 bg-pink-100 hover:bg-pink-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"

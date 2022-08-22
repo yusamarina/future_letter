@@ -17,3 +17,7 @@ ja:
         name: テンプレート名
         content: テンプレート
       send_letters:
+      anniversary:
+        date: Date
+        name: 記念日名
+        description: 説明
