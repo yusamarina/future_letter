@@ -17,10 +17,14 @@ class SendLettersController < ApplicationController
   def show
     @letter = Letter.find_by(token: params[:token])
     send_letter = SendLetter.find_by(letter_id: @letter.id)
-    if @letter.user || send_letter.destination == current_user
+    if @letter.user == current_user
+      render layout: 'login'
+    elsif send_letter.destination_id == current_user.id
       render layout: 'login'
     else
-      redirect_to(top_path) 
+      respond_to do |format|
+        format.html { render file: "#{Rails.root}/public/404.html", layout: false, status: :not_found }
+      end
     end
   end
 

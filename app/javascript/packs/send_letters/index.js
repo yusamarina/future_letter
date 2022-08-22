@@ -6,11 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     liffId: LIFF_ID
   })
 
-    .then(() => {
-      if (!liff.isLoggedIn()) {
-        liff.login()
-      }
-    })
+  .then(() => {
+    if (!liff.isLoggedIn()) {
+      liff.login()
+    }
+  })
 
     .then(() => {
       const idToken = liff.getIDToken()
@@ -29,10 +29,5 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
           data_id = data
         })
-    })
-    .then(() => {
-      if (!liff.isLoggedIn()) {
-        liff.login();
-      }
     })
 })

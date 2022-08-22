@@ -5,6 +5,11 @@
     .text-blue-900.main-font.text-1xl.tracking-wider.text-center
       p
         | お手紙が届くまでお待ちください！
+      .text-xs
+        p
+          | 友だち追加がお済みでない方は
+        p
+          | ページ下部のボタンから友だち追加をしてください。
 
     card.flex.justify-center.items-center.py-3
       div.text-center.leading-5
@@ -12,17 +17,32 @@
           div.w-full
             = image_tag('look_forward.jpg')
 
+    .flex.justify-center.pt-6
+      .text-blue-900.main-font.text-1xl.tracking-wider.text-center
+        p
+          | 友だち追加はこちら
+    .flex.justify-center.pt-1
+      div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL" data-lineId="@727jqlfj" style="display: none;"
+      script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"
+
+    .text-blue-900.main-font.text-xs.tracking-wider.text-center.pt-3
+      p
+        | ※ アプリの操作自体は友だち追加をしなくても行えますが、
+      p
+        | 友だち追加をしないとお手紙は受け取れません。
+
   -else
     .text-blue-900.main-font.text-1xl.tracking-wider.text-center
       p
-        | サプライズでお手紙を送りたいです。
-      p
-        | 表示されているお名前が正しければ
-      p.text-blue-900.font.text-1xl.tracking-wider.text-center
-        | 「OK」
-        span.text-blue-900.main-font.text-1xl.tracking-wider.text-center
-          | を押してください。
-          br
+        | サプライズでお手紙を送りたいです !
+      .text-xs
+        p
+          | 表示されているお名前が正しければ
+        p.font
+          | 「OK」
+          span.main-font
+            | を押してください。
+            br
 
     card.flex.justify-center.items-center.py-3
       div.text-center.leading-5

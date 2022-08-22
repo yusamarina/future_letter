@@ -1,0 +1,12 @@
+.text-blue-900.main-font.text-1xl
+  .pt-6.px-3.text-center.font
+    = @anniversary.date
+  .pt-6.px-3.text-center
+    = @anniversary.name
+  .p-6.leading-5
+    = safe_join(@anniversary.description.split("\n"),tag(:br))
+
+div.text-blue-900.font.text-1xl.tracking-wider.text-center.pt-6
+  = link_to 'Back', anniversaries_path
+
+= javascript_pack_tag 'anniversaries/show'

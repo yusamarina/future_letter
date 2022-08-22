@@ -1,0 +1,26 @@
+div.text-blue-900.main-font.text-1xl.tracking-wider.px-3
+  = form_with(model: anniversary, id: 'form', local: false) do |f|
+    .field.py-3.text-center.font
+      .pb-2.font-black
+        = f.label :date
+        br
+      .text-1xl
+        = f.date_select :date, default: Date.today, date_separator: '/', use_month_numbers: true
+    .field.py-3.text-center
+      .pb-2.font-black
+        = f.label :name
+      .flex.items-center
+        = f.text_field :name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: "〇〇を始めた日"
+    .field.py-3.text-center
+      .pb-2.font-black
+        = f.label :description
+      = f.text_area :description, class: "resize-none shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", size: "20x8", placeholder: "〜〜のために、〇〇を始めた日。"
+
+    #error_explanation
+      = render 'err_msg', anniversary: anniversary
+
+    .actions.text-center.py-3
+      = f.submit :保存する, class: "m-1 bg-yellow-100 hover:bg-yellow-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
+
+div.text-blue-900.font.text-1xl.tracking-wider.text-center
+  = link_to 'Back', anniversaries_path

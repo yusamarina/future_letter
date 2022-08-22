@@ -10,7 +10,6 @@ class LettersController < ApplicationController
   end
 
   def invite
-    @user = User.find(session[:user_id])
     @letter = Letter.find_by(token: params[:token])
     render layout: 'login'
   end
@@ -72,7 +71,13 @@ class LettersController < ApplicationController
   end
 
   def edit
-    @letter.image.cache! if @letter.image.present?
+    if SendLetter.where(letter_id: @letter.id).blank?
+      @letter.image.cache! if @letter.image.present?
+    else
+      respond_to do |format|
+        format.html { render file: "#{Rails.root}/public/404.html", layout: false, status: :not_found }
+      end
+    end
   end
 
   def update
@@ -99,6 +104,10 @@ class LettersController < ApplicationController
 
   private
 
+  def letter_params
+    params.require(:letter).permit(:title, :body, :image, :image_cache, :user_id, :template_id, :token, :send_date)
+  end
+
   def set_letter
     @letter = Letter.find(params[:id])
     user = @letter.user
@@ -107,9 +116,5 @@ class LettersController < ApplicationController
         format.html { render file: "#{Rails.root}/public/404.html", layout: false, status: :not_found }
       end
     end
-  end
-
-  def letter_params
-    params.require(:letter).permit(:title, :body, :image, :image_cache, :user_id, :template_id, :token, :send_date)
   end
 end

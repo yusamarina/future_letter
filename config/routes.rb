@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
   end
   resources :send_letters, only: %i[create new index destroy]
+  resources :anniversaries
 
   get 'letters/:token', to: 'letters#invite'
   get 'open', to: 'letters#open'

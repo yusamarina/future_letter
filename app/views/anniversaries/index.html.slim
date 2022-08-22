@@ -1,0 +1,14 @@
+h1.text-center.leading-10.container.mx-auto.text-1xl.text-blue-900.main-font.py-6
+  = link_to '記念日を登録する', new_anniversary_path, class: "m-1 bg-yellow-100 hover:bg-yellow-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
+
+h1.text-blue-900.font.text-2xl.tracking-wider.text-center.pb-6
+  | MY ANNIVERSARY
+
+- if @anniversaries.present?
+  div.place-items-auto
+    = render @anniversaries
+- else
+  p.text-blue-900.font.text-1xl.tracking-wider.text-center
+    | nothing...
+
+= javascript_pack_tag 'anniversaries/index'
