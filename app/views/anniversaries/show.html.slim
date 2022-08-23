@@ -1,12 +1,23 @@
-.text-blue-900.main-font.text-1xl
-  .pt-6.px-3.text-center.font
-    = @anniversary.date
-  .pt-6.px-3.text-center
-    = @anniversary.name
-  .p-6.leading-5
-    = safe_join(@anniversary.description.split("\n"),tag(:br))
+.flex.justify-center.items-center.m-auto.break-words.pt-6
+  div id="anniversary-#{@anniversary.id}"
+    .text-center.leading-5.text-blue-900.text-1xl
+      .font.px-3
+        = link_to edit_anniversary_path(@anniversary) do
+          = l @anniversary.date, format: :short
+          br
+      .main-font.p-3
+        p
+          | 『
+          span.font-black
+            = link_to @anniversary.name, edit_anniversary_path(@anniversary)
+            span
+              | 』
+      .main-font.px-3.max-w-screen-sm.text-sm
+        = safe_join(@anniversary.description.split("\n"),tag(:br))
+      .font.m-3.text-sm.pt-3
+        = link_to 'Destroy', anniversary_path(@anniversary.id), method: :delete, data: { confirm: "削除してもよろしいですか?" }, remote: true, class: "m-1 bg-pink-100 hover:bg-pink-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
 
-div.text-blue-900.font.text-1xl.tracking-wider.text-center.pt-6
-  = link_to 'Back', anniversaries_path
+.text-center.leading-10.container.mx-auto.text-1xl.text-blue-900.main-font.py-3
+  = link_to '手紙を書く', new_letter_path, class: "m-1 bg-yellow-100 hover:bg-yellow-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
 
 = javascript_pack_tag 'anniversaries/show'
