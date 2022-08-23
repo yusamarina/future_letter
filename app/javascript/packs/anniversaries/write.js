@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(() => {
           const params = new URLSearchParams(window.location.search);
           const id = params.get('id')
-          const redirect_url = `/anniversaries/${id}/edit`
+          const redirect_url = `/anniversaries/${id}`
           window.location = redirect_url
         })
     })
