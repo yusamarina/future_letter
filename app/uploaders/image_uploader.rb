@@ -17,6 +17,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     %w[jpg jpeg gif png]
   end
 
+  def size_range
+    0..5.megabytes
+  end
+
   def filename
     original_filename if original_filename
   end
