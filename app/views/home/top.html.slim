@@ -53,38 +53,72 @@ h1.text-blue-900.font.text-2xl.tracking-wider.text-center.py-6
 
 h1.text-blue-900.font.text-2xl.tracking-wider.text-center.py-6
   | DESCRIPTION
-.text-blue-900.main-font.text-1xl.tracking-wider.text-center
-  p
-    | 1. お手紙を書いて、送信日時を設定します。
-  br
-  p
-    | 2. 送信したい相手を
-    span.text-blue-900.font.text-1xl.tracking-wider.text-center
+
+div.px-2
+  .main-font.text-blue-900.main-font.text-1xl.text-center.tracking-wider.px-4.py-2
+    p.font
+      | 1. NEW LETTER
+      span.main-font
+        | を押します。
+    card.flex.justify-center.items-center
+      div.shadow-lg.w-auto
+        div.w-full
+          = image_tag('top_page.jpg')
+    br
+    p.font
+      | 2.
+      span.main-font
+        | お手紙を書いて送信日時を設定します。
+    card.flex.justify-center.items-center
+      div.shadow-lg.w-auto
+        div.w-full
+          = image_tag('letter.jpg')
+    br
+    p.font
+      | 3.
+      span.main-font
+        | 送信したい相手を
+    p.font
       | LINE
-      span.text-blue-900.main-font.text-1xl.tracking-wider.text-center
+      span.main-font
         | の友達から選びます。
-  br
+    card.flex.justify-center.items-center
+      div.shadow-lg.w-auto
+        div.w-full
+          = image_tag('friend.jpg')
+    br
+    p.font
+      | 4.
+      span.main-font
+        | 相手に宛名の確認と
+    p.main-font
+      | 送信許可をしてもらいます。
+    card.flex.justify-center.items-center
+      div.shadow-lg.w-auto
+        div.w-full
+          = image_tag('ok.jpg')
+    br
+    p.font
+      | 5.
+      span.main-font
+        | 設定した日時にお手紙が届きます！
+    card.flex.justify-center.items-center
+      div.shadow-lg.w-auto
+        div.w-full
+          = image_tag('talk.jpg')
+    br
+
+.text-blue-900.main-font.text-sm.tracking-wider.text-center
   p
-    | 3. 相手に宛名を確認してもらい、
+    | ※ お手紙を届けるためには、
   p
-    | 送信許可をしてもらいます。
-  br
+    | 送信相手の方にも
+    span.font
+      | FUTURE LETTER
+      span.main-font
+        | を
   p
-  | 4. 設定した日時に
-  p
-    | 相手へお手紙が届きます！
-  br
-  .text-blue-900.main-font.text-sm.tracking-wider.text-center
-    p
-      | ※ お手紙を届けるためには、
-    p
-      | 送信相手の方にも
-      span.font
-        | FUTURE LETTER
-        span.main-font
-          | を
-    p
-      | 友だち追加してもらう必要があります。
+    | 友だち追加してもらう必要があります。
 
 .flex.justify-center.pt-6
   .text-blue-900.main-font.text-1xl.tracking-wider.text-center
