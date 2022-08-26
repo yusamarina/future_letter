@@ -31,7 +31,7 @@ div.text-blue-900.main-font.text-1xl.tracking-wider.px-3
       = render 'shared/err_msg', letter: letter
 
     .actions.text-center.py-3
-      = f.submit :手紙を送る相手を選ぶ, class: "m-1 bg-yellow-100 hover:bg-yellow-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
+      = f.submit t('defaults.to_send_letter_page'), class: "m-1 bg-yellow-100 hover:bg-yellow-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
 
 .text-blue-900.main-font.text-xs.tracking-wider.text-center.pt-3.pb-6
   p
@@ -45,4 +45,4 @@ div.text-blue-900.main-font.text-1xl.tracking-wider.px-3
     | 事前に自分専用のトークルームを作成して送信してください。
 
 div.text-blue-900.font.text-1xl.tracking-wider.text-center
-  = link_to 'Back', letters_path
+  = link_to t('defaults.back'), letters_path

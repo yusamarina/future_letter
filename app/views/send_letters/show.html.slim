@@ -15,6 +15,6 @@ card.flex.justify-center.items-center
         = safe_join(@letter.body.split("\n"),tag(:br))
 
 div.text-blue-900.font.text-1xl.tracking-wider.text-center.pt-6
-  = link_to 'Back', send_letters_path
+  = link_to t('defaults.back'), send_letters_path
 
 = javascript_pack_tag 'send_letters/show'

@@ -15,9 +15,9 @@
       .main-font.px-3.max-w-screen-sm.text-sm
         = safe_join(@anniversary.description.split("\n"),tag(:br))
       .font.m-3.text-sm.pt-3
-        = link_to 'Destroy', anniversary_path(@anniversary.id), method: :delete, data: { confirm: "削除してもよろしいですか?" }, remote: true, class: "m-1 bg-pink-100 hover:bg-pink-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
+        = link_to t('defaults.destroy'), anniversary_path(@anniversary.id), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, remote: true, class: "m-1 bg-pink-100 hover:bg-pink-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
 
 .text-center.leading-10.container.mx-auto.text-1xl.text-blue-900.main-font.py-3
-  = link_to '手紙を書く', new_letter_path, class: "m-1 bg-yellow-100 hover:bg-yellow-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
+  = link_to t('defaults.to_writing_page'), new_letter_path, class: "m-1 bg-yellow-100 hover:bg-yellow-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
 
 = javascript_pack_tag 'anniversaries/show'
