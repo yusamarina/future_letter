@@ -1,10 +1,49 @@
 ja:
   defaults:
-    app_name:
+    app_name: FUTURE LETTER
+    contact: CONTACT
+    save: 保存する
+    destroy: Destroy
+    back: Back
+    to_writing_page: 手紙を書く
+    to_send_letter_page: 手紙を送る相手を選ぶ
+    message:
+      login_message: 処理中です...お待ちください...
+      delete_confirm: 削除してもよろしいですか?
+      no_result: nothing...
   time:
     formats:
       default: "%Y-%m-%d %H:%M"
       short: "%Y-%m-%d"
-  letters:
+  anniversaries:
+    edit:
+      title: EDIT ANNIVERSARY
     index:
-      title: お手紙一覧
+      title: MY ANNIVERSARY
+      to_register_page: 記念日を登録する
+    new:
+      title: NEW ANNIVERSARY
+  home:
+    description:
+      title: DESCRIPTION
+    mypage:
+      title: MY PAGE
+      to_sent_letter_page: 送った手紙
+      to_anniversary_page: 記念日
+      to_description_page: 使い方
+    privacy:
+      title: PRIVACY POLICY
+    terms:
+      title: TERMS OF SERVICE
+  letters:
+    edit:
+      title: EDIT LETTER
+    index:
+      title: DRAFT LETTER
+    new:
+      title: NEW LETTER
+    invite:
+      ok_button: OK
+  send_letters:
+    index:
+      title: SENT LETTER

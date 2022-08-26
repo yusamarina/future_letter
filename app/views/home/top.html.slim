@@ -51,15 +51,15 @@ h1.text-blue-900.font.text-2xl.tracking-wider.text-center.py-6
     p
       | 手紙に残す。
 
-h1.text-blue-900.font.text-2xl.tracking-wider.text-center.py-6
-  | DESCRIPTION
+h1.text-blue-900.font.text-2xl.tracking-wider.text-center.pt-9.pb-3
+  = t('home.description.title')
 
 div.px-2
-  .main-font.text-blue-900.main-font.text-1xl.text-center.tracking-wider.px-4.py-2
+  .main-font.text-blue-900.main-font.text-1xl.text-center.tracking-wider.px-4.py-3
     p.font.text-2xl
       | 1.
     p.font
-      | NEW LETTER
+      = t('letters.new.title')
       span.main-font
         | を押します。
     card.flex.justify-center.items-center
@@ -116,7 +116,7 @@ div.px-2
   p
     | 送信相手の方にも
     span.font
-      | FUTURE LETTER
+      = t('defaults.app_name')
       span.main-font
         | を
   p
@@ -133,10 +133,9 @@ div.px-2
 / 本リリース後に再表示
 / .flex.justify-center.pt-6
 /   .text-blue-900.font.text-1xl.tracking-wider.text-center
-/     p
-/       | FUTURE LETTER
-/       span.main-font
-/         | についての
+/     = t('defaults.app_name')
+/     span.main-font
+/       | についての
 /     p.font
 /       | Tweet
 /       span.main-font
