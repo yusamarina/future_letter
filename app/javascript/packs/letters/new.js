@@ -34,25 +34,27 @@ document.addEventListener('DOMContentLoaded', () => {
   postFormElm.addEventListener('ajax:success', (e) => {
     const liff_id = process.env.LIFF_ID
     const redirect_url = `https://liff.line.me/${liff_id}/open?token=${e.detail[0].token}`
-    liff.shareTargetPicker([
-      message = {
-        "type": "template",
-        "altText": "メッセージが届いています。",
-        "template": {
-          "thumbnailImageUrl": "https://cdn.pixabay.com/photo/2016/10/16/21/30/newspaper-1746350_1280.jpg",
-            "type": "buttons",
-            "title": "FUTURE LETTER",
-            "text": "お手紙を送りたいです！\n宛名を確認してください。",
-            "actions": [
-                {
-                  "type": "uri",
-                  "label": "お手紙はこちら",
-                  "uri": redirect_url
-                }
-            ]
+    liff.shareTargetPicker(
+      [
+        message = {
+          "type": "template",
+          "altText": "メッセージが届いています。",
+          "template": {
+            "thumbnailImageUrl": "https://cdn.pixabay.com/photo/2016/10/16/21/30/newspaper-1746350_1280.jpg",
+              "type": "buttons",
+              "title": "FUTURE LETTER",
+              "text": "お手紙を送りたいです！\n宛名を確認してください。",
+              "actions": [
+                  {
+                    "type": "uri",
+                    "label": "お手紙はこちら",
+                    "uri": redirect_url
+                  }
+              ]
+          }
         }
-      }
-    ]).then((res) => {
+      ]
+    ).then((res) => {
       if (res) {
         liff.closeWindow()
         fetch('/message');
