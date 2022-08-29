@@ -18,23 +18,29 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
-gem 'line-bot-api'
-
-gem 'aws-sdk-s3', require: false
-gem 'carrierwave'
-gem 'fog-aws'
-
-gem 'meta-tags'
-
-gem 'dotenv-rails'
-
 gem 'rails-i18n'
 
+# API
+gem 'line-bot-api'
+
+# AWS S3
+gem 'aws-sdk-s3', require: false
+gem 'fog-aws'
+
+# ファイルのアップロード機能
+gem 'carrierwave'
+
+# SEO対策
+gem 'meta-tags'
+
+# 環境変数の管理
+gem 'dotenv-rails'
+
+# slim
 gem 'html2slim'
 gem 'slim-rails'
 
 group :development, :test do
-  gem 'bullet'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'faker'
@@ -49,10 +55,14 @@ group :development do
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
 
+  # 各モデルのスキーマ情報を表示
   gem 'annotate'
+
+  # エラーの詳細情報を表示
   gem 'better_errors'
+
+  # エラー画面でirbを利用
   gem 'binding_of_caller'
-  gem 'solargraph'
 end
 
 group :test do
