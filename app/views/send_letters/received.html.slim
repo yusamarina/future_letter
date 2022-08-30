@@ -1,0 +1,27 @@
+h1.text-blue-900.font.text-2xl.tracking-wider.text-center.py-6
+  = t('.title')
+
+.text-blue-900.main-font.text-1xl.tracking-wider.text-center
+  p.pb-3
+    | \ 届いたお手紙はこちら /
+  .pb-3.text-xs
+    p
+      | 相手から届いた手紙が表示されます。
+
+- if @received_letters.present?
+  - @received_letters.each do |received_letter|
+    - if received_letter.send_date <= Time.now
+      - if received_letter.user != current_user
+        div.place-items-auto.pt-3
+          div.text-center.text-blue-900.font.text-base.pb-1
+            = l received_letter.send_date
+            br
+          .flex.justify-center.my-2.pb-3
+            div.text-center.text-blue-900.main-font.text-base
+              = link_to received_letter.title + " " + "へ", read_letter_path(received_letter.token), class: "bg-yellow-100 py-2 px-4 border border-blue-900 rounded-full shadow hover:bg-yellow-200"
+              br
+- else
+  p.text-blue-900.font.text-1xl.tracking-wider.text-center.pt-3
+    = t('defaults.message.no_result')
+
+= javascript_pack_tag 'send_letters/index'

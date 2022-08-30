@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       get 'reserve'
     end
   end
-  resources :send_letters, only: %i[create new index destroy]
+  resources :send_letters, only: %i[create new index]
   resources :anniversaries
 
   get 'letters/:token', to: 'letters#invite'
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get 'send_letters/:token', to: 'send_letters#show', as: 'read_letter'
   get 'login', to: 'send_letters#login'
+  get 'received', to: 'send_letters#received'
 
   get 'write', to: 'anniversaries#write'
 

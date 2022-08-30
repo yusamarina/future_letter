@@ -1,6 +1,5 @@
 class SendLettersController < ApplicationController
   skip_before_action :login_required, only: %i[login]
-  before_action :set_letter, only: %i[destroy]
 
   require 'net/http'
   require 'uri'
@@ -12,6 +11,11 @@ class SendLettersController < ApplicationController
   def index
     user = current_user
     @send_letters = user.letters.joins(:send_letters).order('send_date DESC')
+  end
+
+  def received
+    user = current_user
+    @received_letters = Letter.joins(:send_letters).where(send_letters: { destination_id: user.id }).order('send_date DESC')
   end
 
   def show
@@ -39,10 +43,6 @@ class SendLettersController < ApplicationController
     letter = Letter.find_by(token: params[:letterToken])
     send_letter = SendLetter.new(destination_id: destination_id, letter_id: letter.id)
     send_letter.save! if SendLetter.find_by(letter_id: letter.id) == nil
-  end
-
-  def destroy
-    @send_letter.destroy!
   end
 
   private
