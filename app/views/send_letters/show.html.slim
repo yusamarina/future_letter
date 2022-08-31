@@ -1,7 +1,7 @@
 div id="letter-#{@letter.id}"
-  card.flex.justify-center.items-center
-    div.shadow-lg.w-auto
-      div.w-full
+  .flex.justify-center.items-center
+    .shadow-lg.w-auto
+      .flex.justify-center
         - if @letter.image.present?
           = image_tag @letter.image.to_s
         - else

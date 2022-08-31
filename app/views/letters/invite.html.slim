@@ -11,11 +11,10 @@
         p
           | ページ下部のボタンから友だち追加をしてください。
 
-    card.flex.justify-center.items-center.py-3
-      div.text-center.leading-5
-        div.shadow-lg.w-auto
-          div.w-full
-            = image_tag('look_forward.jpg')
+    .flex.justify-center.items-center.py-3
+      .text-center.leading-5
+        .shadow-lg.w-auto
+          = image_tag('look_forward.jpg')
 
     .flex.justify-center.pt-6
       .text-blue-900.main-font.text-1xl.tracking-wider.text-center
@@ -44,15 +43,15 @@
             | を押してください。
             br
 
-    card.flex.justify-center.items-center.py-3
-      div.text-center.leading-5
-        div.shadow-lg.w-auto
-          div.w-full
+    .flex.justify-center.items-center.py-3
+      .text-center.leading-5
+        .shadow-lg.w-auto
+          .flex.justify-center
             - if @letter.image.present?
               = image_tag @letter.image.to_s
             - else
               = image_tag('default.jpg')
-          div.text-blue-900.main-font.text-1xl.px-3.py-6
+          .text-blue-900.main-font.text-1xl.px-3.py-6
             = @letter.title
             span.main-font.text-xs
               | へ
@@ -73,8 +72,7 @@
       p
         | 再度送信して欲しいことを送信者へお伝えください！
 
-  card.flex.justify-center.items-center.py-3
-    div.text-center.leading-5
-      div.shadow-lg.w-auto
-        div.w-full
-          = image_tag('expired.jpg')
+  .flex.justify-center.items-center.py-3
+    .text-center.leading-5
+      .shadow-lg.w-auto
+        = image_tag('expired.jpg')
