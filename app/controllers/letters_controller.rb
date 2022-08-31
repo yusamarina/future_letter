@@ -20,7 +20,19 @@ class LettersController < ApplicationController
     render json: @letter
     message = {
       "type": 'text',
-      "text": "お手紙の宛先が確認されました！\n設定日時にお手紙が相手へ届きます。"
+      "text": "お手紙の宛先が確認されました$\n設定日時に相手へお手紙が届きます！お楽しみに$",
+      "emojis": [
+        {
+          "index": 14,
+          "productId": "5ac22bad031a6752fb806d67",
+          "emojiId": "186"
+        },
+        {
+          "index": 38,
+          "productId": "5ac22bad031a6752fb806d67",
+          "emojiId": "143"
+        }
+      ]
     }
     client = Line::Bot::Client.new { |config|
       config.channel_secret = ENV['LINE_CHANNEL_SECRET']
@@ -30,7 +42,19 @@ class LettersController < ApplicationController
     p response
     message = {
       "type": 'text',
-      "text": "お手紙はサプライズで届きます！\nお届けまでお楽しみに...!"
+      "text": "お手紙はサプライズで届きます！\nお届けまでお楽しみに$$",
+      "emojis": [
+        {
+          "index": 26,
+          "productId": "5ac22bad031a6752fb806d67",
+          "emojiId": "070"
+        },
+        {
+          "index": 27,
+          "productId": "5ac22bad031a6752fb806d67",
+          "emojiId": "189"
+        }
+      ]
     }
     client = Line::Bot::Client.new { |config|
       config.channel_secret = ENV['LINE_CHANNEL_SECRET']
@@ -60,7 +84,19 @@ class LettersController < ApplicationController
   def message
     message = {
       "type": 'text',
-      "text": "お手紙の宛先確認メッセージを送りました！\n送信許可があるまでお待ちください。",
+      "text": "お手紙の宛先確認メッセージを送りました$\n相手が送信を許可するまでお待ちください！$",
+      "emojis": [
+        {
+          "index": 19,
+          "productId": "5ac2197b040ab15980c9b43d",
+          "emojiId": "027"
+        },
+        {
+          "index": 41,
+          "productId": "5ac2173d031a6752fb806d56",
+          "emojiId": "202"
+        }
+      ]
     }
     client = Line::Bot::Client.new { |config|
       config.channel_secret = ENV['LINE_CHANNEL_SECRET']
@@ -71,9 +107,7 @@ class LettersController < ApplicationController
   end
 
   def edit
-    if SendLetter.where(letter_id: @letter.id).blank?
-      @letter.image.cache! if @letter.image.present?
-    else
+    if SendLetter.where(letter_id: @letter.id).present?
       respond_to do |format|
         format.html { render file: "#{Rails.root}/public/404.html", layout: false, status: :not_found }
       end
@@ -105,7 +139,7 @@ class LettersController < ApplicationController
   private
 
   def letter_params
-    params.require(:letter).permit(:title, :body, :image, :image_cache, :user_id, :template_id, :token, :send_date)
+    params.require(:letter).permit(:title, :body, :image, :remove_image, :user_id, :template_id, :token, :send_date)
   end
 
   def set_letter

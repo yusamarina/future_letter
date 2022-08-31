@@ -13,6 +13,7 @@ ja:
         body: 手紙の本文
         image: 画像
         send_date: 手紙を送る日時
+        remove_image: 画像を取り消す
       template:
         name: テンプレート名
         content: テンプレート
