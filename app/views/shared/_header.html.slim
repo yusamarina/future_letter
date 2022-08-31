@@ -1,10 +1,10 @@
 header
   top
-    div.header-title.text-blue-900.font.text-2xl.tracking-wider
+    .header-title.font.text-2xl.tracking-wider.text-blue-900
       = link_to top_path do
         p FUTURE
         p LETTER
-    nav.header-nav.text-blue-900.font.text-xs.tracking-wider
+    nav.header-nav.font.text-xs.tracking-wider.text-blue-900
       ul.header-menu
         li.header-menu
           = link_to privacy_path do
@@ -19,16 +19,16 @@ header
           = link_to t('defaults.contact'), 'https://forms.gle/3QYDYsXKFowwssbA9'
 
 - if logged_in?
-  ul.menu
+  ul.menu.text-center.text-blue-900.font.text-xs
     li.menu.image.container.shadow-lg.mx-auto.tracking-wider.w-1/3
       = link_to image_tag('flower.jpg'), mypage_path
-      p.text-center.text-blue-900.font.text-xs
+      p
         = t('home.mypage.title')
     li.menu.image.container.shadow-lg.mx-auto.tracking-wider.w-1/3
       = link_to image_tag('post.jpg'), new_letter_path
-      p.text-center.text-blue-900.font.text-xs
+      p
         = t('letters.new.title')
     li.menu.image.container.shadow-lg.mx-auto.tracking-wider.w-1/3
       = link_to image_tag('open_book.jpg'), letters_path
-      p.text-center.text-blue-900.font.text-xs
+      p
         = t('letters.index.title')
