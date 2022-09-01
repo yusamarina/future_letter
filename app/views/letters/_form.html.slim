@@ -1,14 +1,18 @@
-div.text-blue-900.main-font.text-1xl.tracking-wider.px-3
+.text-blue-900.main-font.text-1xl.tracking-wider.px-3
   = form_with(model: letter, id: 'form', local: false) do |f|
     .field.pb-3.text-center.font-black
       .pb-2
         = f.label :image
       .justify-center
         = f.file_field :image
-        = f.hidden_field :image_cache
       - if letter.image.present?
-        .pt-2
+        .pt-2.flex.justify-center
           = image_tag(letter.image.url)
+        .pt-2
+          = f.check_box :remove_image
+          = f.label :remove_image
+          p.text-xs.font-normal
+            | ※ デフォルト画像へ変更されます。
     .field.py-3.text-center
       .pb-2.font-black
         = f.label :title
@@ -44,5 +48,5 @@ div.text-blue-900.main-font.text-1xl.tracking-wider.px-3
   p
     | 事前に自分専用のトークルームを作成して送信してください。
 
-div.text-blue-900.font.text-1xl.tracking-wider.text-center
+.text-blue-900.font.text-1xl.tracking-wider.text-center
   = link_to t('defaults.back'), letters_path
