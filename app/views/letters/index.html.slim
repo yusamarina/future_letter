@@ -1,25 +1,22 @@
-.text-blue-900.text-center
-  h1.leading-10.container.mx-auto.text-1xl.main-font.py-6
+.text-blue-900.text-center.text-base.main-font
+  .leading-10.container.mx-auto.py-6
     = link_to t('defaults.to_writing_page'), new_letter_path, class: "m-1 bg-yellow-100 hover:bg-yellow-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
 
-  h1.font.text-2xl.tracking-wider.pb-6
+  .font.text-2xl.tracking-wider.pb-6
     = t('.title')
 
-  .main-font.text-1xl.tracking-wider.pb-3
+  .tracking-wider.pb-3
     .pb-3
-      p
-        | \ 下書き中のお手紙はこちら /
+      p \ 下書き中のお手紙はこちら /
     .pb-3.text-xs
-      p
-        | ※ 送信せずに送信日時を迎えたお手紙は
-      p
-        | 再度送信日時を設定してください。
+      p ※ 送信せずに送信日時を迎えたお手紙は
+      p 再度送信日時を設定してください。
 
   - if @letters.present?
     div.place-items-auto
       = render @letters
   - else
-    p.font.text-1xl.tracking-wider
+    .font.tracking-wider
       = t('defaults.message.no_result')
 
 = javascript_pack_tag 'letters/index'

@@ -10,13 +10,13 @@
             - else
               = link_to image_tag('default.jpg'), edit_letter_path(letter)
 
-          .text-blue-900.font.text-1xl.px-4.py-2
+          .text-blue-900.font.text-base.px-4.py-2
             = link_to edit_letter_path(letter) do
               = l letter.send_date
               br
             .main-font.px-4.py-2
               = letter.title
-              span.text-blue-900.main-font.text-xs
+              span.main-font.text-xs
                 | へ
-            .text-blue-900.font.m-5
+            .font.m-5
               = link_to t('defaults.destroy'), letter_path(letter.id), method: :delete, data: { confirm: "まだ送信していないお手紙です。\n" + t('defaults.message.delete_confirm') }, remote: true, class: "m-1 bg-pink-100 hover:bg-pink-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"

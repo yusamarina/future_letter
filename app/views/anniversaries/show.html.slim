@@ -1,6 +1,6 @@
 .flex.justify-center.items-center.m-auto.break-words.pt-6
   div id="anniversary-#{@anniversary.id}"
-    .text-center.leading-5.text-blue-900.text-1xl
+    .text-center.leading-5.text-blue-900.text-base
       .font.px-3
         = link_to edit_anniversary_path(@anniversary) do
           = l @anniversary.date, format: :short
@@ -17,7 +17,7 @@
       .font.m-3.text-sm.pt-3
         = link_to t('defaults.destroy'), anniversary_path(@anniversary.id), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, remote: true, class: "m-1 bg-pink-100 hover:bg-pink-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
 
-.text-center.leading-10.container.mx-auto.text-1xl.text-blue-900.main-font.py-3
+.text-center.leading-10.container.mx-auto.text-base.text-blue-900.main-font.py-3
   = link_to t('defaults.to_writing_page'), new_letter_path, class: "m-1 bg-yellow-100 hover:bg-yellow-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
 
 = javascript_pack_tag 'anniversaries/show'

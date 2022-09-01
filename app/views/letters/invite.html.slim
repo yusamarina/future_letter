@@ -2,75 +2,64 @@
 
 - if @letter.send_date > Time.now
   - if SendLetter.find_by(letter_id: @letter.id)
-    .text-blue-900.main-font.text-1xl.tracking-wider.text-center
-      p
-        | お手紙が届くまでお待ちください！
-      .text-xs
-        p
-          | 友だち追加がお済みでない方は
-        p
-          | ページ下部のボタンから友だち追加をしてください。
+    .text-blue-900.text-base
+      .main-font.tracking-wider.text-center
+        p お手紙が届くまでお待ちください！
+        .text-xs
+          p 友だち追加がお済みでない方は
+          p ページ下部のボタンから友だち追加をしてください。
 
-    .flex.justify-center.items-center.py-3
-      .text-center.leading-5
+      .flex.justify-center.items-center.pt-3
         .shadow-lg.w-auto
           = image_tag('look_forward.jpg')
 
-    .flex.justify-center.pt-6
-      .text-blue-900.main-font.text-1xl.tracking-wider.text-center
-        p
-          | 友だち追加はこちら
-    .flex.justify-center.pt-1
-      div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL" data-lineId="@727jqlfj" style="display: none;"
-      script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"
+      .flex.justify-center.pt-6
+        .main-font.tracking-wider.text-center
+          p 友だち追加はこちら
+      .flex.justify-center.pt-1
+        div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL" data-lineId="@727jqlfj" style="display: none;"
+        script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"
 
-    .text-blue-900.main-font.text-xs.tracking-wider.text-center.pt-3
-      p
-        | ※ アプリの操作自体は友だち追加をしなくても行えますが、
-      p
-        | 友だち追加をしないとお手紙は受け取れません。
+      .main-font.text-xs.tracking-wider.text-center.pt-3
+        p ※ アプリの操作自体は友だち追加をしなくても行えますが、
+        p 友だち追加をしないとお手紙は受け取れません。
 
   -else
-    .text-blue-900.main-font.text-1xl.tracking-wider.text-center
-      p
-        | サプライズでお手紙を送りたいです !
-      .text-xs
-        p
-          | 表示されているお名前が正しければ
-        p.font
-          | 「OK」
-          span.main-font
-            | を押してください。
-            br
+    .text-blue-900.text-base.text-center
+      .main-font.tracking-wider
+        p サプライズでお手紙を送りたいです !
+        .text-xs
+          p 表示されているお名前が正しければ
+          p.font
+            | 「OK」
+            span.main-font
+              | を押してください。
+              br
 
-    .flex.justify-center.items-center.py-3
-      .text-center.leading-5
-        .shadow-lg.w-auto
-          .flex.justify-center
-            - if @letter.image.present?
-              = image_tag @letter.image.to_s
-            - else
-              = image_tag('default.jpg')
-          .text-blue-900.main-font.text-1xl.px-3.py-6
-            = @letter.title
-            span.main-font.text-xs
-              | へ
+      .flex.justify-center.items-center.py-3
+        .leading-5
+          .shadow-lg.w-auto
+            .flex.justify-center
+              - if @letter.image.present?
+                = image_tag @letter.image.to_s
+              - else
+                = image_tag('default.jpg')
+            .main-font.px-3.py-6
+              = @letter.title
+              span.main-font.text-xs
+                | へ
 
-    .text-blue-900.font.text-center.mt-3
-      = link_to t('.ok_button'), reserve_letter_path(@letter.id), id: 'ok', remote: true, data: { confirm: t('defaults.app_name') + " 公式アカウントより\n後日お手紙が届きます。よろしいですか?" }, class: "m-1 bg-pink-100 hover:bg-pink-200 border border-blue-900 rounded-full shadow py-2 px-4"
+      .font.mt-3
+        = link_to t('.ok_button'), reserve_letter_path(@letter.id), id: 'ok', remote: true, data: { confirm: t('defaults.app_name') + " 公式アカウントより\n後日お手紙が届きます。よろしいですか?" }, class: "m-1 bg-pink-100 hover:bg-pink-200 border border-blue-900 rounded-full shadow py-2 px-4"
 
 - else
   .text-blue-900.main-font.tracking-wider.text-center
-    .text-1xl
-      p
-        | 送信予定時刻が過ぎているため
-      p
-        | お手紙を開けません…。
+    .text-base
+      p 送信予定時刻が過ぎているため
+      p お手紙を開けません…。
     .text-xs.pt-3
-      p
-        | ※ お手紙を受け取っていない場合は、
-      p
-        | 再度送信して欲しいことを送信者へお伝えください！
+      p ※ お手紙を受け取っていない場合は、
+      p 再度送信して欲しいことを送信者へお伝えください！
 
   .flex.justify-center.items-center.py-3
     .text-center.leading-5

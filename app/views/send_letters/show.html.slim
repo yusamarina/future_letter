@@ -7,17 +7,17 @@ div id="letter-#{@letter.id}"
         - else
           = image_tag('default.jpg')
 
-      .text-blue-900.main-font
-        div.text-1xl.pt-6.px-3.text-center
+      .text-blue-900.main-font.text-1xl
+        .pt-6.px-3.text-center
           = @letter.title
           span.text-xs
             | へ
-        div.text-1xl.p-6.leading-5
+        .p-6.leading-5
           = safe_join(@letter.body.split("\n"),tag(:br))
 
   - if SendLetter.where(letter_id: @letter.id).where(destination_id: current_user.id).present?
     - if @letter.user == current_user
-      div.text-blue-900.font.flex.justify-center.mt-3
+      .text-blue-900.font.flex.justify-center.mt-3
         = link_to t('defaults.destroy'), letter_path(@letter.id), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, remote: true, class: "m-1 bg-pink-100 hover:bg-pink-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
 
 .text-blue-900.font.text-1xl.tracking-wider.text-center.pt-6

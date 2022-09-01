@@ -3,57 +3,40 @@
     .text-center.leading-5
       .shadow-lg.w-auto
         = image_tag 'icon.jpg', size: '700x700'
-        .text-blue-900.main-font.text-1xl.tracking-wider.text-center.px-4.py-2
-          p
-            | 大切なひと、未来の自分へ
-          p
-            | 今の気持ちを手紙にして送りませんか？
+        .text-blue-900.main-font.text-base.tracking-wider.text-center.px-4.py-2
+          p 大切なひと、未来の自分へ
+          p 今の気持ちを手紙にして送りませんか？
 
-h1.text-blue-900.font.text-2xl.tracking-wider.text-center.py-6
-  | WHEN TO USE
-.text-blue-900.main-font.text-1xl.tracking-wider.text-center
-  p.font-black
-    | 記念日や誕生日に
-  .text-sm
-    p
-      | 忙しくてゆっくり手紙を書く時間がない時
-    p
-      | いつもとは違った形で手紙を送りたい時
-    p
-      | 空いている時間に手紙を作成して
-    p
-      | お祝いの気持ちを伝える。
-  br
-  p.font-black
-    | 大切なイベントを控えている時に
-  .text-sm
-    p
-      | 結婚式の準備中に大変だったこと
-    p
-      | 感じた思いを手紙にして
-    p
-      | 当日、「あんなこともあったね。」と
-    p
-      | ふたりで思い出を振り返る。
-  br
-  p.font-black
-    | 未来の自分に
-  .text-sm
-    p
-      | 夢のために一歩踏み出した日
-    p
-      | 挫けそうになった日
-    p
-      | その時の思いを
-    p
-      | 未来の自分にかけてあげたい言葉として
-    p
-      | 手紙に残す。
+.text-blue-900.tracking-wider.text-center
+  .font.text-2xl.py-6
+    | WHEN TO USE
+  .main-font.text-base
+    p.font-black 記念日や誕生日に
+    .text-sm
+      p 忙しくてゆっくり手紙を書く時間がない時
+      p いつもとは違った形で手紙を送りたい時
+      p 空いている時間に手紙を作成して
+      p お祝いの気持ちを伝える。
+    br
+    p.font-black 大切なイベントを控えている時に
+    .text-sm
+      p 結婚式の準備中に大変だったこと
+      p 感じた思いを手紙にして
+      p 当日、「あんなこともあったね。」と
+      p ふたりで思い出を振り返る。
+    br
+    p.font-black 未来の自分に
+    .text-sm
+      p 夢のために一歩踏み出した日
+      p 挫けそうになった日
+      p その時の思いを
+      p 未来の自分にかけてあげたい言葉として
+      p 手紙に残す。
 
-h1.text-blue-900.font.text-2xl.tracking-wider.text-center.pt-9.pb-3
+.text-blue-900.font.text-2xl.tracking-wider.text-center.pt-9.pb-3
   = t('home.description.title')
 
-div.px-2
+.px-2
   .main-font.text-blue-900.main-font.text-1xl.text-center.tracking-wider.px-4.py-3
     p.font.text-2xl
       | 1.
@@ -67,16 +50,14 @@ div.px-2
     br
     p.font.text-2xl
       | 2.
-    p
-      | お手紙を書いて送信日時を設定します。
+    p お手紙を書いて送信日時を設定します。
     .flex.justify-center.items-center
       .shadow-lg.w-auto
         = image_tag 'letter.jpg', size: '350x350'
     br
     p.font.text-2xl
       | 3.
-    p
-      | 送りたい相手を
+    p 送りたい相手を
     p.font
       | LINE
       span.main-font
@@ -87,53 +68,48 @@ div.px-2
     br
     p.font.text-2xl
       | 4.
-    p
-      | 相手に宛名の確認と
-    p
-      | 送信許可をしてもらいます。
+    p 相手に宛名の確認と
+    p 送信許可をしてもらいます。
     .flex.justify-center.items-center
       .shadow-lg.w-auto
         = image_tag 'ok.jpg', size: '350x350'
     br
     p.font.text-2xl
       | 5.
-    p
-      | 設定した日時にお手紙が届きます !
+    p 設定した日時にお手紙が届きます !
     .flex.justify-center.items-center
       .shadow-lg.w-auto
         = image_tag 'talk.jpg', size: '350x350'
     br
 
-.text-blue-900.main-font.text-sm.tracking-wider.text-center
-  p
-    | ※ お手紙を届けるためには、
-  p
-    | 送信相手の方にも
-    span.font
-      = t('defaults.app_name')
-      span.main-font
-        | を
-  p
-    | 友だち追加してもらう必要があります。
-
-.flex.justify-center.pt-6
-  .text-blue-900.main-font.text-1xl.tracking-wider.text-center
+.text-blue-900.main-font
+  .text-sm.tracking-wider.text-center
+    p ※ お手紙を届けるためには、
     p
-      | 友だち追加はこちら
-.flex.justify-center.pt-1
-  div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL" data-lineId="@727jqlfj" style="display: none;"
-  script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"
+      | 送信相手の方にも
+      span.font
+        = t('defaults.app_name')
+        span.main-font
+          | を
+    p 友だち追加してもらう必要があります。
 
-/ 本リリース後に再表示
-/ .flex.justify-center.pt-6
-/   .text-blue-900.font.text-1xl.tracking-wider.text-center
-/     = t('defaults.app_name')
-/     span.main-font
-/       | についての
-/     p.font
-/       | Tweet
-/       span.main-font
-/         | はこちら
-/ .flex.justify-center.pt-1
-/   <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" data-url="https://future-letter.herokuapp.com/top" data-text="【FUTURE LETTER】サプライズでお手紙を送るサービスです。">Tweet</a>
-/   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  .flex.justify-center.pt-6
+    .text-base.tracking-wider.text-center
+      p 友だち追加はこちら
+  .flex.justify-center.pt-1
+    div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL" data-lineId="@727jqlfj" style="display: none;"
+    script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"
+
+  / 本リリース後に再表示
+  / .flex.justify-center.pt-6
+  /   .font.text-base.tracking-wider.text-center
+  /     = t('defaults.app_name')
+  /     span.main-font
+  /       | についての
+  /     p.font
+  /       | Tweet
+  /       span.main-font
+  /         | はこちら
+  / .flex.justify-center.pt-1
+  /   <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" data-url="https://future-letter.herokuapp.com/top" data-text="【FUTURE LETTER】サプライズでお手紙を送るサービスです。">Tweet</a>
+  /   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

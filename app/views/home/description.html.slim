@@ -1,8 +1,8 @@
-h1.text-blue-900.font.text-2xl.tracking-wider.text-center.pt-6.pb-3
+.text-blue-900.font.text-2xl.tracking-wider.text-center.pt-6.pb-3
   = t('.title')
 
-div.px-2
-  .main-font.text-blue-900.main-font.text-1xl.text-center.tracking-wider.px-4.py-3
+.px-2
+  .main-font.text-blue-900.main-font.text-base.text-center.tracking-wider.px-4.py-3
     p.font.text-2xl
       | 1.
     p.font
@@ -15,16 +15,14 @@ div.px-2
     br
     p.font.text-2xl
       | 2.
-    p
-      | お手紙を書いて送信日時を設定します。
+    p お手紙を書いて送信日時を設定します。
     .flex.justify-center.items-center
       .shadow-lg.w-auto
         = image_tag 'letter.jpg', size: '350x350'
     br
     p.font.text-2xl
       | 3.
-    p
-      | 送りたい相手を
+    p 送りたい相手を
     p.font
       | LINE
       span.main-font
@@ -35,53 +33,48 @@ div.px-2
     br
     p.font.text-2xl
       | 4.
-    p
-      | 相手に宛名の確認と
-    p
-      | 送信許可をしてもらいます。
+    p 相手に宛名の確認と
+    p 送信許可をしてもらいます。
     .flex.justify-center.items-center
       .shadow-lg.w-auto
         = image_tag 'ok.jpg', size: '350x350'
     br
     p.font.text-2xl
       | 5.
-    p
-      | 設定した日時にお手紙が届きます !
+    p 設定した日時にお手紙が届きます !
     .flex.justify-center.items-center
       .shadow-lg.w-auto
         = image_tag 'talk.jpg', size: '350x350'
     br
 
-.text-blue-900.main-font.text-sm.tracking-wider.text-center
-  p
-    | ※ お手紙を届けるためには、
-  p
-    | 送信相手の方にも
-    span.font
-      = t('defaults.app_name')
-      span.main-font
-        | を
-  p
-    | 友だち追加してもらう必要があります。
-
-.flex.justify-center.pt-6
-  .text-blue-900.main-font.text-1xl.tracking-wider.text-center
+.text-blue-900.main-font
+  .text-sm.tracking-wider.text-center
+    p ※ お手紙を届けるためには、
     p
-      | 友だち追加はこちら
-.flex.justify-center.pt-1
-  div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL" data-lineId="@727jqlfj" style="display: none;"
-  script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"
+      | 送信相手の方にも
+      span.font
+        = t('defaults.app_name')
+        span.main-font
+          | を
+    p 友だち追加してもらう必要があります。
+
+  .flex.justify-center.pt-6
+    .text-base.tracking-wider.text-center
+      p 友だち追加はこちら
+  .flex.justify-center.pt-1
+    div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL" data-lineId="@727jqlfj" style="display: none;"
+    script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"
 
 / 本リリース後に再表示
-/ .flex.justify-center.pt-6
-/   .text-blue-900.font.text-1xl.tracking-wider.text-center
-/     = t('defaults.app_name')
-/     span.main-font
-/         | についての
-/     p.font
-/       | Tweet
+/   .flex.justify-center.pt-6
+/     .font.text-base.tracking-wider.text-center
+/       = t('defaults.app_name')
 /       span.main-font
-/         | はこちら
-/ .flex.justify-center.pt-1
-/   <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" data-url="https://future-letter.herokuapp.com/top" data-text="【FUTURE LETTER】 サプライズでお手紙を送るサービスです。">Tweet</a>
-/   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+/           | についての
+/       p.font
+/         | Tweet
+/         span.main-font
+/           | はこちら
+/   .flex.justify-center.pt-1
+/     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" data-url="https://future-letter.herokuapp.com/top" data-text="【FUTURE LETTER】 サプライズでお手紙を送るサービスです。">Tweet</a>
+/     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

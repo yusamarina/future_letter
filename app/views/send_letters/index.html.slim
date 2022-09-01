@@ -1,31 +1,27 @@
-.text-blue-900.tracking-wider.text-center
-  h1.font.text-2xl.py-6
+.text-blue-900.text-center.tracking-wider
+  .font.text-2xl.py-6
     = t('.title')
 
   .main-font.text-1xl
-    p.pb-3
-      | \ 送ったお手紙はこちら /
+    p.pb-3 \ 送ったお手紙はこちら /
     .text-xs
-      p
-        | 自分が送った手紙が送信日時を迎えると表示されます。
-    .pb-3.text-xs
-      p
-        | ※ 自分宛の手紙のみ削除することができます。
+      p 自分が送った手紙が送信日時を迎えると表示されます。
+      p.pb-3 ※ 自分宛の手紙のみ削除することができます。
 
-- if @send_letters.present?
-  - @send_letters.each do |send_letter|
-    - if send_letter.send_date <= Time.now
-      div id="letter-#{send_letter.id}"
-        .place-items-auto.pt-3.text-blue-900.text-base
-          .text-center.font.pb-1
-            = l send_letter.send_date
-            br
-          .flex.justify-center.my-2.pb-3
-            .text-center.main-font
+.text-blue-900.text-center.text-base
+  - if @send_letters.present?
+    - @send_letters.each do |send_letter|
+      - if send_letter.send_date <= Time.now
+        div id="letter-#{send_letter.id}"
+          .place-items-auto.pt-3
+            .font.pb-1
+              = l send_letter.send_date
+              br
+            .main-font.flex.justify-center.my-2.pb-3
               = link_to send_letter.title + " " + "へ", read_letter_path(send_letter.token), class: "bg-yellow-100 py-2 px-4 border border-blue-900 rounded-full shadow hover:bg-yellow-200"
               br
-- else
-  p.text-blue-900.font.text-1xl.tracking-wider.text-center.pt-3
-    = t('defaults.message.no_result')
+  - else
+    .font.tracking-wider.pt-3
+      = t('defaults.message.no_result')
 
 = javascript_pack_tag 'send_letters/index'
