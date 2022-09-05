@@ -1,13 +1,6 @@
 ja:
   activerecord:
-    models:
-      user: ユーザー
-      letter: 手紙
-      template: テンプレート
-      send_letters: 送る手紙
     attributes:
-      user:
-        line_user_id: LINEID
       letter:
         title: 手紙を送りたい相手の名前
         body: 手紙の本文
@@ -17,7 +10,6 @@ ja:
       template:
         name: テンプレート名
         content: テンプレート
-      send_letters:
       anniversary:
         date: Date
         name: 記念日名

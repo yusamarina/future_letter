@@ -3,36 +3,30 @@
     .shadow-lg.w-auto
       = image_tag 'icon.jpg', size: '700x700'
 
-.text-blue-900.tracking-wider.text-center.main-font
-  h1.font.text-2xl.py-6
-    | PLEASE ADD ME
-    br
-    | AS A LINE FRIEND !
-  .text-1xl
-    p
-      | 宛名のご確認ありがとうございました !
-      br
-    p
-      | このお手紙を受け取るには
-  .font.text-1xl.font-black.underline
+.text-blue-900.tracking-wider.text-center.main-font.text-base
+  .font.text-2xl.py-6
+    p PLEASE ADD ME
+    p AS A LINE FRIEND !
+
+  p 宛名のご確認ありがとうございました !
+  br
+  p このお手紙を受け取るには
+
+  .font.font-black.underline
     = t('defaults.app_name')
     span.main-font
       | を
       span.text-green-600
         | 友だち追加
-  .text-1xl
-    p
-      | する必要があります。
-    br
-    p
-      | 下のボタンからぜひ追加してください！
+
+  p する必要があります。
+  br
+  p 下のボタンからぜひ追加してください！
 
   .flex.justify-center.py-6
     div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL" data-lineId="@727jqlfj" style="display: none;"
     script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"
 
   .text-xs
-    p
-      | ※ アプリの操作自体は友だち追加をしなくても行えますが、
-    p
-      | 友だち追加をしないとお手紙は受け取れません。
+    p ※ アプリの操作自体は友だち追加をしなくても行えますが、
+    p 友だち追加をしないとお手紙は受け取れません。
