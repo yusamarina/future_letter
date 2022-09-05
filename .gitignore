@@ -39,3 +39,4 @@ yarn-debug.log*
 /.github
 localhost-key.pem
 localhost.pem
+/vendor/bundle
