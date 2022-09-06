@@ -28,4 +28,15 @@ Rails.application.routes.draw do
   get 'friend', to: 'home#friend'
 
   post 'callback', to: 'linebot#callback'
+
+  namespace :admin do
+    root 'dashboards#top'
+    get 'login', to: 'user_sessions#new'
+    post 'login', to: 'user_sessions#create'
+    delete 'logout', to: 'user_sessions#destroy'
+    resources :users, only: %i[index show destroy]
+    resources :letters, only: %i[index show destroy]
+    resources :send_letters, only: %i[index show destroy]
+    resources :anniversaries, only: %i[index show destroy]
+  end
 end
