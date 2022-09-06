@@ -5,31 +5,8 @@ namespace :check_date do
     liff_id = ENV['LIFF_ID']
     letters = Letter.where('send_date <= ? and send_date > ?', Time.now, Time.now - 1.hours)
     letters.each do |letter|
-      if SendLetter.find_by(letter_id: letter.id).present?
-        message = {
-          "type": 'template',
-          "altText": '相手へお手紙が送られました。',
-          "template": {
-              "thumbnailImageUrl": "https://images.unsplash.com/photo-1559057287-ce0f595679a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-              "type": 'buttons',
-              "title": 'FUTURE LETTER',
-              "text": '相手へお手紙が送られました！',
-              "actions": [
-                  {
-                    "type": 'uri',
-                    "label": '送ったお手紙を確認する',
-                    "uri": "https://liff.line.me/#{liff_id}/login?token=#{letter.token}"
-                  }
-              ]
-          }
-        }
-        client = Line::Bot::Client.new { |config|
-          config.channel_secret = ENV['LINE_CHANNEL_SECRET']
-          config.channel_token = ENV['LINE_CHANNEL_TOKEN']
-        }
-        response = client.push_message(letter.user.line_user_id, message)
-        p response
-
+      address = SendLetter.find_by(letter_id: letter.id)
+      if address.present?
         message = {
           "type": 'template',
           "altText": 'お手紙が届きました。',
@@ -51,10 +28,35 @@ namespace :check_date do
           config.channel_secret = ENV['LINE_CHANNEL_SECRET']
           config.channel_token = ENV['LINE_CHANNEL_TOKEN']
         }
-        address = SendLetter.find_by(letter_id: letter.id)
-        destination = User.find(address.destination_id)
-        response = client.push_message(destination.line_user_id, message)
+        response = client.push_message(address.user.line_user_id, message)
         p response
+
+        if letter.user != address.user
+          message = {
+            "type": 'template',
+            "altText": '相手へお手紙が送られました。',
+            "template": {
+                "thumbnailImageUrl": "https://images.unsplash.com/photo-1559057287-ce0f595679a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+                "type": 'buttons',
+                "title": 'FUTURE LETTER',
+                "text": '相手へお手紙が送られました！',
+                "actions": [
+                    {
+                      "type": 'uri',
+                      "label": '送ったお手紙を確認する',
+                      "uri": "https://liff.line.me/#{liff_id}/login?token=#{letter.token}"
+                    }
+                ]
+            }
+          }
+          client = Line::Bot::Client.new { |config|
+            config.channel_secret = ENV['LINE_CHANNEL_SECRET']
+            config.channel_token = ENV['LINE_CHANNEL_TOKEN']
+          }
+          response = client.push_message(letter.user.line_user_id, message)
+          p response
+        end
+
       else
         message = {
           "type": 'template',
