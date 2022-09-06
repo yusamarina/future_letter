@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root 'users#new'
+  root 'home#top'
 
-  resources :users, only: %i[create]
+  resources :users, only: %i[create new]
   resources :letters, only: %i[create new update edit index destroy] do
     member do
       get 'reserve'
@@ -24,7 +24,6 @@ Rails.application.routes.draw do
   get 'privacy', to: 'home#privacy'
   get 'terms', to: 'home#terms'
   get 'description', to: 'home#description'
-  get 'top', to: 'home#top'
   get 'mypage', to: 'home#mypage'
   get 'friend', to: 'home#friend'
 

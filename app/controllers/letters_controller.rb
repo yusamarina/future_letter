@@ -6,7 +6,7 @@ class LettersController < ApplicationController
   require 'uri'
 
   def index
-    @letters = Letter.where(user_id: current_user.id).includes(:user).order('send_date ASC')
+    @letters = Letter.where(user_id: current_user.id, send_letters: { letter_id: nil }).includes(:send_letters, :user).order('send_date ASC')
   end
 
   def invite
