@@ -50,3 +50,7 @@ ja:
       title: SENT LETTER
     received:
       title: MY LETTER
+  admin:
+    dashboards:
+      top:
+        title: ダッシュボード
