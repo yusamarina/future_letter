@@ -24,10 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch(request)
       .then(response => response.json())
       .then(data => {
-        data_id = data.id
-      })
-      .then(() => {
-        window.location = '/admin/top'
+        data_id = data
       })
     })
 })

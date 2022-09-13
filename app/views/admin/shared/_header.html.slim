@@ -1,19 +1,17 @@
 header
   top
     .header-title.font.text-2xl.tracking-wider.text-blue-900
-      p FUTURE
-      p LETTER
+      = link_to admin_root_path do
+        p FUTURE
+        p LETTER
     nav.header-nav.font.text-xs.tracking-wider.text-blue-900
       ul.header-menu
         li.header-menu
           = link_to admin_users_path do
             p USER
         li.header-menu
-          = link_to admin_letters_path do
-            p LETTER
-        li.header-menu
           = link_to admin_send_letters_path do
             p SEND LETTER
-        li.header-menu
-          = link_to admin_anniversaries_path do
-            p ANNIVERSARY
+        li.header-menu.text-yellow-500
+          = link_to admin_logout_path, method: :delete, data: { confirm: t('defaults.message.logout_confirm') } do
+            p LOG OUT
