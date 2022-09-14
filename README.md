@@ -74,7 +74,7 @@
   - line-bot-api : API
   - aws-sdk-s3、fog-aws : AWS  S3
   - carrierwave : ファイルのアップロード機能
-  - meta-tags : EO対策
+  - meta-tags : SEO対策
   - dotenv-rails : 環境変数の管理
   - slim-rails : Slim
   - annotate : 各モデルのスキーマ情報を表示
