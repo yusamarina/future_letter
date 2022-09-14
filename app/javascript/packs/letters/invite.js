@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
           postFormElm.addEventListener('ajax:success', (e) => {
             const letterToken = e.detail[0].token
             const data = `idToken=${idToken}&dataId=${dataId}&letterToken=${letterToken}`
-            const req = new Request('/send_letters', {
+            const request = new Request('/send_letters', {
               headers: {
                 'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
                 'X-CSRF-Token': token
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
               body: data
             });
 
-            fetch(req)
+            fetch(request)
               .then(response => response.json())
               .then(data => {
                 data_id = data.id

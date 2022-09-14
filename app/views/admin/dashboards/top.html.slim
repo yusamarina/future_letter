@@ -1,4 +1,9 @@
 .text-blue-900.font.text-2xl.tracking-wider.text-center.py-6
   = t('.title')
 
+  p.main-font.text-base
+    | ログイン中のユーザー：
+    span.font
+      = current_user.id
+
 = javascript_pack_tag 'admin/dashboards/top'
