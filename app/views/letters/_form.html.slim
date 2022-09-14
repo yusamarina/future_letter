@@ -42,7 +42,10 @@
     p しばらくお待ちください。
     br
     p ※ 自分宛に送信する場合は、
-    p 事前に自分専用のトークルームを作成して送信してください。
+    p.font
+      = t('defaults.app_name')
+      span.main-font
+        | 公式アカウントへ送信してください。
 
   .font.text-base
     = link_to t('defaults.back'), letters_path
