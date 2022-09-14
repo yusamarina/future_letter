@@ -36,8 +36,6 @@ Rails.application.routes.draw do
     post 'login', to: 'user_sessions#create'
     delete 'logout', to: 'user_sessions#destroy'
     resources :users, only: %i[index show destroy]
-    resources :letters, only: %i[index show destroy]
     resources :send_letters, only: %i[index show destroy]
-    resources :anniversaries, only: %i[index show destroy]
   end
 end

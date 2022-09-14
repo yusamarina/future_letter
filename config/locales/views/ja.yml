@@ -9,6 +9,7 @@ ja:
     to_send_letter_page: 手紙を送る相手を選ぶ
     message:
       login_message: 処理中です...お待ちください...
+      logout_confirm: ログアウトしますか?
       delete_confirm: 削除してもよろしいですか?
       no_result: nothing...
   time:
@@ -53,4 +54,4 @@ ja:
   admin:
     dashboards:
       top:
-        title: ダッシュボード
+        title: DASHBOARD
