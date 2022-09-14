@@ -36,7 +36,7 @@
  | ---- | ---- | ---- |
  | <img src="https://user-images.githubusercontent.com/94360716/184880230-5cb7af52-cb00-41fe-a092-5d08555b114d.png" width="500x500"> | <img src="https://user-images.githubusercontent.com/94360716/190196830-96c1b784-bcc1-4976-8c24-ea917d812fad.jpg" width="500x500"> | <img src="https://user-images.githubusercontent.com/94360716/190200165-aac6e276-02da-4380-9690-b546c0a3d848.jpg" width="500x500"> |
  
- | 3. 送信したい相手を<br>LINEの友だちから選びます。 | 4. 宛名を確認してもらい、<br>送信許可をしてもらいます。 | 5. 設定した日時に<br>相手にお手紙が届きます！ |
+ | 3. 送信したい相手を<br>LINEの友だちから選びます。 | 4. 相手に宛名の確認と<br>送信許可をしてもらいます。 | 5. 設定した日時に<br>相手にお手紙が届きます！ |
  | ---- | ---- | ---- |
  | <img src="https://user-images.githubusercontent.com/94360716/190198667-8623bd08-151a-4558-bf68-92f7174a908e.jpg" width="500x500"> | <img src="https://user-images.githubusercontent.com/94360716/190200605-c48458f4-ad3c-4c4f-ac2e-2956b008fb1b.jpg" width="500x500"> | <img src="https://user-images.githubusercontent.com/94360716/190200746-f64c7d04-d136-4ac7-ab45-407a632163ac.jpg" width="500x500"> |
      
