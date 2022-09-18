@@ -25,11 +25,11 @@
 #
 FactoryBot.define do
   factory :letter do
-    user { nil }
-    template { nil }
-    title { "MyString" }
-    body { "MyText" }
-    image { "MyString" }
-    send_date { "2022-07-11 17:49:18" }
+    title { Faker::Name.name }
+    body { Faker::Lorem.sentence }
+    image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test.jpg')) }
+    send_date { Time.current + 1.hours }
+    token { SecureRandom.hex(32) }
+    user
   end
 end
