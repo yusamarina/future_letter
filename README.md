@@ -72,7 +72,7 @@
   
   **Gem**
   - line-bot-api : API
-  - aws-sdk-s3、fog-aws : AWS  S3
+  - aws-sdk-s3、fog-aws : Amazon S3
   - carrierwave : ファイルのアップロード機能
   - meta-tags : SEO対策
   - dotenv-rails : 環境変数の管理
@@ -98,8 +98,8 @@
 ![ERD（修正版）](https://user-images.githubusercontent.com/94360716/190202677-452add51-3408-40b5-bf8f-40579c15901b.png)
 
 ## スケジュール
-  企画〜技術調査：6/27 〆切  
-  README〜ER図作成：6/27 〆切  
-  メイン機能実装：6/28 - 7/31  
-  β版をRUNTEQ内リリース（MVP）：8/16 〆切  
-  本番リリース：9/6  
+  企画〜技術調査： - 6/27  
+  README〜ER図作成： - 6/27  
+  メイン機能実装： 6/28 - 8/16  
+  β版をRUNTEQ内リリース（MVP）： 8/16   
+  本番リリース： 9/6  
