@@ -26,5 +26,45 @@
 require 'rails_helper'
 
 RSpec.describe Letter, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'バリデーション確認' do
+    context '手紙の宛名が未入力だった場合' do
+      it '手紙の作成が出来ないこと' do
+        blank_title_letter = Letter.new(body: Faker::Lorem.sentence, send_date: Time.current)
+        expect(blank_title_letter.valid?).to be false
+        expect(blank_title_letter.errors[:title]).to include('を入力してください')
+      end
+    end
+
+    context '手紙の本文が未入力だった場合' do
+      it '手紙の作成が出来ないこと' do
+        blank_body_letter = Letter.new(title: Faker::Name.name, send_date: Time.current)
+        expect(blank_body_letter.valid?).to be false
+        expect(blank_body_letter.errors[:body]).to include('を入力してください')
+      end
+    end
+
+    context '手紙の宛名が31文字以上の場合' do
+      it '記念日の作成が出来ないこと' do
+        long_title_letter = Letter.new(title: Faker::Lorem.words(number: 31), body: Faker::Lorem.sentence, send_date: Time.current)
+        expect(long_title_letter.valid?).to be false
+        expect(long_title_letter.errors[:title]).to include('は30文字以内で入力してください')
+      end
+    end
+
+    context '手紙の本文が1001文字以上の場合' do
+      it '記念日の作成が出来ないこと' do
+        long_body_letter = Letter.new(title: Faker::Name.name, body: Faker::Lorem.sentence(word_count: 1001), send_date: Time.current)
+        expect(long_body_letter.valid?).to be false
+        expect(long_body_letter.errors[:body]).to include('は1000文字以内で入力してください')
+      end
+    end
+
+    context '手紙の送信日時に過去の時刻を設定した場合' do
+      it '手紙の作成が出来ないこと' do
+        past_send_date_letter = Letter.new(title: Faker::Name.name, body: Faker::Lorem.sentence, send_date: Time.current - 1.minutes)
+        expect(past_send_date_letter.valid?).to be false
+        expect(past_send_date_letter.errors[:send_date]).to include('は未来の時間を選択してください')
+      end
+    end
+  end
 end
