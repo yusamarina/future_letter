@@ -15,9 +15,9 @@ class LettersController < ApplicationController
   end
 
   def reserve
-    @letter = Letter.find(params[:id])
-    @letter.save!(validate: false)
-    render json: @letter
+    letter = Letter.find(params[:id])
+    letter.save!(validate: false)
+    render json: letter
     message = {
       "type": 'text',
       "text": "お手紙の宛先が確認されました$\n設定日時に相手へお手紙が届きます！お楽しみに$",
@@ -38,7 +38,7 @@ class LettersController < ApplicationController
       config.channel_secret = ENV['LINE_CHANNEL_SECRET']
       config.channel_token = ENV['LINE_CHANNEL_TOKEN']
     }
-    response = client.push_message(@letter.user.line_user_id, message)
+    response = client.push_message(letter.user.line_user_id, message)
     p response
     message = {
       "type": 'text',
