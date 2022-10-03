@@ -4,7 +4,7 @@
 
   ![FUTURE_LETTER_IMAGE](https://user-images.githubusercontent.com/94360716/184880195-afce0566-0fe0-4541-abdc-8622e925f3ec.png)
 
-  [FUTURE LETTER トップページへ](https://future-letter.herokuapp.com/top)
+  [FUTURE LETTER トップページへ](https://www.future-letter.com/top)
 
 ## サービス概要
   大切なひとへLINEを使って手紙を送れるサービスです。
