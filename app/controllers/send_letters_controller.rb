@@ -35,10 +35,9 @@ class SendLettersController < ApplicationController
   def new; end
 
   def create
-    id_token = params[:idToken]
-    channel_id = ENV['CHANNEL_ID']
-    res = Net::HTTP.post_form(URI.parse('https://api.line.me/oauth2/v2.1/verify'), { 'id_token' => id_token, 'client_id' => channel_id })
-    render json: res.body
+    set_destination = SetDestinationService.new(params[:idToken])
+    set_destination.call
+    render json: set_destination.res_body
     destination_id = params[:dataId]
     letter = Letter.find_by(token: params[:letterToken])
     send_letter = SendLetter.new(destination_id: destination_id, letter_id: letter.id)
