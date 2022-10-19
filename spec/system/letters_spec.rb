@@ -13,7 +13,7 @@ RSpec.describe "Letters", js: true, type: :system do
 
   describe '下書きの手紙一覧' do
     it '自分が下書き保存した手紙が表示されること' do
-      expect(page).to have_content letter.send_date.strftime("%Y-%m-%d %H:%M")
+      expect(page).to have_content default_time(letter.send_date)
       expect(page).to have_content letter.title
       expect(current_path).to eq letters_path
     end

@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def default_time(datetime)
+    datetime.strftime("%Y-%m-%d %H:%M")
+  end
+
+  def short_time(datetime)
+    datetime.strftime("%Y-%m-%d")
+  end
+
   def default_meta_tags
     {
       site: 'FUTURE LETTER',
