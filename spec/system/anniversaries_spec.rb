@@ -13,7 +13,7 @@ RSpec.describe "Anniversaries", type: :system do
 
   describe '記念日一覧' do
     it '自分が登録した記念日が表示されること' do
-      expect(page).to have_content anniversary.date.strftime("%Y-%m-%d")
+      expect(page).to have_content short_time(anniversary.date)
       expect(page).to have_content anniversary.name
       expect(current_path).to eq anniversaries_path
     end
@@ -30,7 +30,7 @@ RSpec.describe "Anniversaries", type: :system do
           click_link 'Destroy'
         end
         switch_to_window(windows.last)
-        expect(page).not_to have_content anniversary.date.strftime("%Y-%m-%d")
+        expect(page).not_to have_content short_time(anniversary.date)
         expect(page).not_to have_content anniversary.name
         expect(current_path).to eq anniversaries_path
       end
@@ -50,7 +50,7 @@ RSpec.describe "Anniversaries", type: :system do
 
     context '記念日の日付をクリックした場合' do
       it '記念日の編集ページへ遷移すること' do
-        click_link anniversary.date.strftime("%Y-%m-%d")
+        click_link short_time(anniversary.date)
         switch_to_window(windows.last)
         expect(page).to have_content 'EDIT ANNIVERSARY'
         expect(page).to have_field '記念日名', with: anniversary.name
