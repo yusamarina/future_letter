@@ -31,3 +31,9 @@ ul.menu.text-center.text-blue-900.font.text-xs
     = link_to image_tag('open_book.jpg'), demo_draft_letter_path
     p
       = t('letters.index.title')
+
+.text-blue-900.text-center.tracking-wider.main-font.text-xs.py-3
+  p ※ このページはデモページです。
+.text-red-400.main-font.text-1xl.tracking-wider.text-center.font-black
+  .flex.justify-center.pb-3
+    = link_to 'アプリへのログイン、登録はこちらから', top_path, class: "m-1 bg-red-50 hover:bg-red-100 text-red-400 py-2 px-4 border border-red-400 rounded-full shadow"
