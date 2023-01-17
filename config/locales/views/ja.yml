@@ -55,3 +55,13 @@ ja:
     dashboards:
       top:
         title: DASHBOARD
+  demo:
+    home:
+      description:
+        title: DESCRIPTION
+      mypage:
+        title: MY PAGE
+        to_received_page: 届いた手紙
+        to_sent_letter_page: 送った手紙
+        to_anniversary_page: 記念日
+        to_description_page: 使い方
