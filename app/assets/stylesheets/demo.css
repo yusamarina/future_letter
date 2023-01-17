@@ -1,0 +1,53 @@
+.main-font {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+
+.font {
+  font-family: 'Playfair Display', serif;
+}
+
+body {
+  margin: 0;
+  padding: 10px;
+  width: 100%;
+}
+
+header {
+  width: 100%;
+  top: 0;
+}
+
+footer {
+  width: 100%;
+  top: 0;
+  align-items: center;
+}
+
+.header-nav {
+  margin: 0 0 0 auto;
+}
+
+ul.header-menu {
+  display: flex;
+}
+
+li.header-menu {
+  margin: 0 0 0 20px;
+}
+
+ul.menu {
+  width: 100%;
+  display: flex;
+  padding-bottom: 10px;
+}
+
+li.menu {
+  margin: 0 5px;
+}
+
+top {
+  display: flex;
+  align-items: center;
+  padding: 20px 0 20px 0;
+  margin: 0 5px;
+}
