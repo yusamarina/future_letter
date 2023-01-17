@@ -38,4 +38,16 @@ Rails.application.routes.draw do
     resources :users, only: %i[index show destroy]
     resources :send_letters, only: %i[index show destroy]
   end
+
+  namespace :demo do
+    root 'home#top'
+    get 'description', to: 'home#description'
+    get 'mypage', to: 'home#mypage'
+    get 'new_letter', to: 'letters#new'
+    get 'draft_letter', to: 'letters#draft'
+    get 'received_letter', to: 'letters#received'
+    get 'send_letter', to: 'letters#send'
+    get 'letter', to: 'letters#show'
+    resources :anniversaries, only: %i[index show]
+  end
 end
