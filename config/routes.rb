@@ -41,6 +41,8 @@ Rails.application.routes.draw do
 
   namespace :demo do
     root 'home#top'
+    get 'privacy', to: 'home#privacy'
+    get 'terms', to: 'home#terms'
     get 'description', to: 'home#description'
     get 'mypage', to: 'home#mypage'
     get 'trial_letter', to: 'letters#trial'
@@ -48,6 +50,8 @@ Rails.application.routes.draw do
     get 'received_letter', to: 'letters#received'
     get 'mailed_letter', to: 'letters#mailed'
     get 'letter', to: 'letters#show'
-    resources :anniversaries, only: %i[index show]
+    get 'trial_anniversary', to: 'anniversaries#trial'
+    get 'anniversaries', to: 'anniversaries#index'
+    get 'anniversary', to: 'anniversaries#show'
   end
 end
