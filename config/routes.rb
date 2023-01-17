@@ -46,7 +46,7 @@ Rails.application.routes.draw do
     get 'trial_letter', to: 'letters#trial'
     get 'draft_letter', to: 'letters#draft'
     get 'received_letter', to: 'letters#received'
-    get 'send_letter', to: 'letters#send'
+    get 'mailed_letter', to: 'letters#mailed'
     get 'letter', to: 'letters#show'
     resources :anniversaries, only: %i[index show]
   end

@@ -5,7 +5,7 @@ class Demo::LettersController < Demo::BaseController
 
   def received; end
 
-  def send; end
+  def mailed; end
 
   def show; end
 end
