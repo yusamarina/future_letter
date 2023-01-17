@@ -1,5 +1,5 @@
 class Demo::LettersController < Demo::BaseController
-  def new; end
+  def trial; end
 
   def draft; end
 

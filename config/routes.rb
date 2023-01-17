@@ -43,7 +43,7 @@ Rails.application.routes.draw do
     root 'home#top'
     get 'description', to: 'home#description'
     get 'mypage', to: 'home#mypage'
-    get 'new_letter', to: 'letters#new'
+    get 'trial_letter', to: 'letters#trial'
     get 'draft_letter', to: 'letters#draft'
     get 'received_letter', to: 'letters#received'
     get 'send_letter', to: 'letters#send'
