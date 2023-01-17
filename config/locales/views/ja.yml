@@ -65,3 +65,7 @@ ja:
         to_sent_letter_page: 送った手紙
         to_anniversary_page: 記念日
         to_description_page: 使い方
+      privacy:
+        title: PRIVACY POLICY
+      terms:
+        title: TERMS OF SERVICE
