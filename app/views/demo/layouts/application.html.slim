@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title
+      = t('defaults.app_name')
+    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    script[charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"]
+    link[rel="preconnect" href="https://fonts.googleapis.com"]
+    link[rel="preconnect" href="https://fonts.gstatic.com"]
+    link[href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400&display=swap" rel="stylesheet"]
+    link[href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet"]
+    = display_meta_tags(default_meta_tags)
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_pack_tag 'application'
+    link[href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"]
+    script[src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"]
+    - if Rails.env.production?
+      = render 'layouts/google_analytics'
+  body
+    = render 'demo/shared/header'
+    = yield
+    = render 'demo/shared/footer'
