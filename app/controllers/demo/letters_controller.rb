@@ -7,5 +7,7 @@ class Demo::LettersController < Demo::BaseController
 
   def mailed; end
 
-  def show; end
+  def show_received; end
+
+  def show_mailed; end
 end
