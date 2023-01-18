@@ -1,2 +1,12 @@
-h1 Demo::Home#mypage
-p Find me in app/views/demo/home/mypage.html.slim
+.text-blue-900.font.text-2xl.tracking-wider.text-center.py-6
+  = t('.title')
+
+.text-blue-900.main-font.text-1xl.tracking-wider.text-center.font-black
+  .flex.justify-center.pb-3
+    = link_to t('.to_received_page'), demo_received_letter_path, class: "m-1 bg-blue-50 hover:bg-blue-100 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
+  .flex.justify-center.pb-3
+    = link_to t('.to_sent_letter_page'), demo_mailed_letter_path, class: "m-1 bg-blue-50 hover:bg-blue-100 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
+  .flex.justify-center.pb-3
+    = link_to t('.to_anniversary_page'), demo_anniversaries_path, class: "m-1 bg-blue-50 hover:bg-blue-100 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
+  .flex.justify-center.pb-3
+    = link_to t('.to_description_page'), demo_description_path, class: "m-1 bg-blue-50 hover:bg-blue-100 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"

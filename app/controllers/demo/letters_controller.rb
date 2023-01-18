@@ -1,11 +1,13 @@
 class Demo::LettersController < Demo::BaseController
-  def new; end
+  def trial; end
 
   def draft; end
 
   def received; end
 
-  def send; end
+  def mailed; end
 
-  def show; end
+  def show_received; end
+
+  def show_mailed; end
 end
