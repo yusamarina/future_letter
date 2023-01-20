@@ -76,3 +76,7 @@ ja:
     letters:
       draft:
         title: DRAFT LETTER
+      mailed:
+        title: SENT LETTER
+      received:
+        title: MY LETTER

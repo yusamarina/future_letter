@@ -1,2 +1,15 @@
-.text-blue-900.text-center.tracking-wider.main-font.text-xs.py-3
-  p ※ 準備中です。
+.flex.justify-center.items-center.pt-6
+  .shadow-lg.w-auto
+    .flex.justify-center
+      = image_tag('default.jpg')
+
+    .text-blue-900.main-font.text-1xl
+      .pt-6.px-3.text-center
+        | 〇〇〇
+        span.text-xs
+          | へ
+      .p-6.leading-5
+        | いつもありがとう！
+
+.text-blue-900.font.text-1xl.tracking-wider.text-center.pt-6
+  = link_to t('defaults.back'), demo_received_letter_path
