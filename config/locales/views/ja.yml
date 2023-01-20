@@ -69,3 +69,14 @@ ja:
         title: PRIVACY POLICY
       terms:
         title: TERMS OF SERVICE
+    anniversaries:
+      index:
+        title: MY ANNIVERSARY
+        to_register_page: 記念日を登録する
+    letters:
+      draft:
+        title: DRAFT LETTER
+      mailed:
+        title: SENT LETTER
+      received:
+        title: MY LETTER

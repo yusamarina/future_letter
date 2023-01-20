@@ -1,2 +1,20 @@
-.text-blue-900.text-center.tracking-wider.main-font.text-xs.py-3
-  p ※ 準備中です。
+.flex.justify-center.items-center.m-auto.break-words.pt-6
+  .text-center.leading-5.text-blue-900.text-base
+    .font.px-3
+      = l Date.today, format: :short
+        br
+    .main-font.p-3
+      p
+        | 『
+        span.font-black
+          | 〇〇を始めた日
+          span
+            | 』
+    .main-font.px-3.max-w-screen-sm.text-sm
+      | △△のために〇〇を始めた！○月△日まで毎日続ける！
+    .font.m-3.text-sm.pt-3
+      = link_to t('defaults.destroy'), demo_anniversary_path, class: "m-1 bg-pink-100 hover:bg-pink-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
+    .main-font.text-xs.pb-6
+      p ※ デモページでは記念日の編集・削除は出来ません。
+.text-center.leading-10.container.mx-auto.text-base.text-blue-900.main-font.py-3
+  = link_to t('defaults.to_writing_page'), demo_trial_letter_path, class: "m-1 bg-yellow-100 hover:bg-yellow-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"

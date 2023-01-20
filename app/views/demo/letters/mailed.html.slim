@@ -1,2 +1,19 @@
-.text-blue-900.text-center.tracking-wider.main-font.text-xs.py-3
-  p ※ 準備中です。
+.text-blue-900.text-center.tracking-wider
+  .font.text-2xl.py-6
+    = t('.title')
+
+  .main-font.text-1xl
+    p.pb-3 \ 送ったお手紙はこちら /
+    .text-xs
+      p 自分が送った手紙が送信日時を迎えると表示されます。
+      p.pb-3 ※ 自分宛の手紙のみ削除することができます。
+      p.pb-3 ※ デモページでは手紙の削除は出来ません。
+
+.text-blue-900.text-center.text-base
+  .place-items-auto.pt-3
+    .font.pb-1
+      = l Date.today
+      br
+    .main-font.flex.justify-center.my-2.pb-3
+      = link_to "〇〇〇" + " " + "へ", demo_show_mailed_letter_path, class: "bg-yellow-100 py-2 px-4 border border-blue-900 rounded-full shadow hover:bg-yellow-200"
+      br

@@ -1,2 +1,31 @@
-.text-blue-900.text-center.tracking-wider.main-font.text-xs.py-3
-  p ※ 準備中です。
+.text-blue-900.text-center.text-base.main-font
+  .leading-10.container.mx-auto.py-6
+    = link_to t('defaults.to_writing_page'), demo_trial_letter_path, class: "m-1 bg-yellow-100 hover:bg-yellow-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
+
+  .font.text-2xl.tracking-wider.pb-6
+    = t('.title')
+
+  .tracking-wider.pb-3
+    .pb-3
+      p \ 下書き中のお手紙はこちら /
+    .pb-3.text-xs
+      p ※ 送信せずに送信日時を迎えたお手紙は
+      p 再度送信日時を設定してください。
+    .pb-3.text-xs
+      p ※ デモページでは手紙の編集・削除は出来ません。
+
+  .place-items-auto
+    .flex.justify-center.items-center.p-3
+      .text-center.leading-5
+        .shadow-lg.w-auto
+          .flex.justify-center
+            = image_tag 'default.jpg'
+          .text-blue-900.font.text-base.px-4.py-2
+            = l Date.today
+            br
+            .main-font.px-4.py-2
+              | 〇〇〇
+              span.main-font.text-xs
+                | へ
+            .font.m-5
+              = link_to t('defaults.destroy'), demo_draft_letter_path, class: "m-1 bg-pink-100 hover:bg-pink-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"

@@ -1,2 +1,47 @@
-.text-blue-900.text-center.tracking-wider.main-font.text-xs.py-3
-  p ※ 準備中です。
+.text-blue-900.main-font.text-base.text-center
+  .leading-10.container.mx-auto.py-6
+    = link_to t('.to_register_page'), demo_trial_anniversary_path, class: "m-1 bg-yellow-100 hover:bg-yellow-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
+
+  .font.text-2xl.tracking-wider.pb-6
+    = t('.title')
+
+  .tracking-wider
+    p 未来の日時で登録すると
+    p
+      | 記念日の
+      span.font
+        | 30
+        span.main-font
+          | 日前に通知が届きます。
+    .text-xs.pt-3
+      p
+        | ※ 通知は
+        span.font
+          | 30
+          span.main-font
+            | 日前になった記念日のみ
+      p 届く仕様になっておりますが
+      p 過去の日時で登録することも出来ます。
+
+    .text-xs.py-3
+      p ※ デモページでは記念日の編集・削除は出来ません。
+
+.place-items-auto
+  .flex.justify-center.items-center.m-auto.break-words.pt-6
+    .text-center.leading-5.text-blue-900.text-1xl
+      .font.px-3
+        = link_to demo_anniversary_path do
+          = l Date.today, format: :short
+          br
+      .main-font.p-3
+        p
+          | 『
+          span.font-black
+            = link_to demo_anniversary_path do
+              | 〇〇を始めた日
+              span
+                | 』
+      .main-font.px-3.max-w-screen-sm.text-sm
+        | △△のために〇〇を始めた！○月△日まで毎日続ける！
+      .font.m-3.text-sm.pt-3
+        = link_to t('defaults.destroy'), demo_anniversaries_path, class: "m-1 bg-pink-100 hover:bg-pink-200 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
