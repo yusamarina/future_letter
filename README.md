@@ -1,10 +1,10 @@
-# FUTURE LETTER
-  大切なひと、未来の自分へ
-  今の気持ちを手紙にして送りませんか？
-
-  ![FUTURE_LETTER_IMAGE](https://user-images.githubusercontent.com/94360716/184880195-afce0566-0fe0-4541-abdc-8622e925f3ec.png)
-
-  [FUTURE LETTER トップページへ](https://www.future-letter.com/top)
+<div align="center">
+  <h1>FUTURE LETTER</h1>
+  <p>大切なひと、未来の自分へ</p>
+  <p>今の気持ちを手紙にして送りませんか？</p>
+    <img src="https://user-images.githubusercontent.com/94360716/184880195-afce0566-0fe0-4541-abdc-8622e925f3ec.png" alt="FUTURE LETTER IMAGE"/>
+  <p><a href="https://www.future-letter.com/top">FUTURE LETTER トップページへ</a></p>
+</div>
 
 ## サービス概要
   大切なひとへLINEを使って手紙を送れるサービスです。
@@ -66,7 +66,7 @@
   - 手紙のお気に入り機能
 
 ## 使用技術
-  **バッグエンド**
+  **バックエンド**
   - Ruby （3.1.2）
   - Rails （6.1.6） 
   
