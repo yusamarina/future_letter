@@ -77,7 +77,7 @@ class LettersController < ApplicationController
   private
 
   def letter_params
-    params.require(:letter).permit(:title, :body, :image, :remove_image, :user_id, :template_id, :token, :send_date)
+    params.require(:letter).permit(:title, :body, :image, :remove_image, :user_id, :template_id, :token, :send_date, :sender_name)
   end
 
   def set_letter

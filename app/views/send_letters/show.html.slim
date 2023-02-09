@@ -8,12 +8,17 @@ div id="letter-#{@letter.id}"
           = image_tag('default.jpg')
 
       .text-blue-900.main-font.text-1xl
-        .pt-6.px-3.text-center
+        .pt-6.px-6.text-center
           = @letter.title
           span.text-xs
             | へ
         .p-6.leading-5
           = safe_join(@letter.body.split("\n"),tag(:br))
+        - if @letter.sender_name.present?
+          .pb-6.px-6.text-right
+            = @letter.sender_name
+            span.text-xs
+              | より
 
   - if SendLetter.where(letter_id: @letter.id).where(destination_id: current_user.id).present?
     - if @letter.user == current_user

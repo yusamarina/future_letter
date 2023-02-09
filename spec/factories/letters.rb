@@ -6,6 +6,7 @@
 #  body        :text             not null
 #  image       :string
 #  send_date   :datetime         not null
+#  sender_name :string
 #  title       :string           not null
 #  token       :text             not null
 #  created_at  :datetime         not null
@@ -27,6 +28,7 @@ FactoryBot.define do
   factory :letter do
     title { Faker::Name.name }
     body { Faker::Lorem.sentence }
+    sender_name { Faker::Name.name }
     image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test.jpg')) }
     send_date { Time.current + 1.hours }
     token { SecureRandom.hex(32) }
