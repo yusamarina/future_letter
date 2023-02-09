@@ -1,12 +1,60 @@
 .text-blue-900.font.text-2xl.tracking-wider.text-center.py-6
   = t('.title')
 
+.px-2.pb-3
+  .main-font.text-base.text-blue-900.text-center.tracking-wider
+    p.pb-3 \ これまでの記録 /
+    .text-xs.px-4.flex.justify-center.pb-3
+      .px-6
+        p 送った
+        p 手紙の数
+        - if @send_letters.present?
+          p.font.text-base
+            = @send_letters.count
+            span.main-font
+              | 通
+        - else
+          p.font.text-base
+            | 0
+            span.main-font
+              | 通
+      .pr-6
+        p 受け取った
+        p 手紙の数
+        - if @received_letters.present?
+          p.font.text-base
+            = @received_letters.count
+            span.main-font
+              | 通
+        - else
+          p.font.text-base
+            | 0
+            span.main-font
+              | 通
+      .pr-6
+        p 登録した
+        p 記念日の数
+        - if @anniversaries.present?
+          p.font.text-base
+            = @anniversaries.count
+            span.main-font
+              | 日
+        - else
+          p.font.text-base
+            | 0
+            span.main-font
+              | 日
+
 .text-blue-900.main-font.text-1xl.tracking-wider.text-center.font-black
   .flex.justify-center.pb-3
-    = link_to t('.to_received_page'), received_path, class: "m-1 bg-blue-50 hover:bg-blue-100 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
+    .flex.justify-center.px-3
+      = link_to t('.to_received_page'), received_path, class: "m-1 bg-blue-50 hover:bg-blue-100 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
+    .flex.justify-center.px-3
+      = link_to t('.to_sent_letter_page'), send_letters_path, class: "m-1 bg-blue-50 hover:bg-blue-100 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
   .flex.justify-center.pb-3
-    = link_to t('.to_sent_letter_page'), send_letters_path, class: "m-1 bg-blue-50 hover:bg-blue-100 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
-  .flex.justify-center.pb-3
-    = link_to t('.to_anniversary_page'), anniversaries_path, class: "m-1 bg-blue-50 hover:bg-blue-100 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
-  .flex.justify-center.pb-3
-    = link_to t('.to_description_page'), description_path, class: "m-1 bg-blue-50 hover:bg-blue-100 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
+    .flex.justify-center.px-3
+      = link_to t('.to_anniversary_page'), anniversaries_path, class: "m-1 bg-blue-50 hover:bg-blue-100 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
+    .flex.justify-center.px-3
+      = link_to t('.to_description_page'), description_path, class: "m-1 bg-blue-50 hover:bg-blue-100 text-blue-900 py-2 px-4 border border-blue-900 rounded-full shadow"
+
+= javascript_pack_tag 'home/mypage'

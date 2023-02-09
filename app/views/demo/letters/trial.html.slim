@@ -1,2 +1,9 @@
-.text-blue-900.text-center.tracking-wider.main-font.text-base.py-3
+.text-blue-900.font.text-2xl.tracking-wider.text-center.py-6
+  = t('.title')
+
+.text-blue-900.text-center.tracking-wider.main-font.text-base.pb-6
   p ※ 現在準備中です。
+
+.text-blue-900.text-center.tracking-wider
+  .font.text-base
+    = link_to t('defaults.back'), demo_draft_letter_path

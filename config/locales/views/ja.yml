@@ -73,6 +73,8 @@ ja:
       index:
         title: MY ANNIVERSARY
         to_register_page: 記念日を登録する
+      trial:
+        title: NEW ANNIVERSARY
     letters:
       draft:
         title: DRAFT LETTER
@@ -80,3 +82,5 @@ ja:
         title: SENT LETTER
       received:
         title: MY LETTER
+      trial:
+        title: NEW LETTER
