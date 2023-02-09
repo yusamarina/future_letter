@@ -6,6 +6,7 @@
 #  body        :text             not null
 #  image       :string
 #  send_date   :datetime         not null
+#  sender_name :string
 #  title       :string           not null
 #  token       :text             not null
 #  created_at  :datetime         not null
@@ -33,6 +34,7 @@ class Letter < ApplicationRecord
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 30 }
   validates :body, presence: true, length: { maximum: 1000 }
+  validates :sender_name, length: { maximum: 30 }
   validates :send_date, presence: true
   validates :token, presence: true
   validate :send_date_check
